@@ -21,7 +21,7 @@ class ImageSaver(Node):
         self.bridge = CvBridge()
         
         # 3. Create a directory to save images if it doesn't exist
-        self.save_path = '/home/shourya/robot_ws/src/opencv_comparison/saved_images'
+        self.save_path = '/opencv_comparison/saved_images'
         if not os.path.exists(self.save_path):
             os.makedirs(self.save_path)
             
