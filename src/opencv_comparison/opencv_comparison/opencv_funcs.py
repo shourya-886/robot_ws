@@ -1,65 +1,84 @@
 #!/usr/bin/env python3
-import cv2
-import os
 import rclpy
 from rclpy.node import Node
 from cv_bridge import CvBridge
-from robot_msgs.srv import ImageToImage
+from sensor_msgs.msg import Image
+from std_msgs.msg import Bool
+
+import cv2
+import os
 
 
 class OpenCvFuncs(Node):
     def __init__(self):
         super().__init__("opencv_func_node")
-        #this param asks for whether to save the images requested
-        self.declare_parameter("save_requested_images", True)
 
-        #assigning value from param
-        self.save_requested_images = self.get_parameter("save_requested_images").get_parameter_value().bool_value
+        self.declare_parameter("save_converted_images", True)
+        self.declare_parameter("camera_usb", 0)
 
-        if self.save_requested_images == True: #checking if the user has asked to save the requested files
-            #run this if user's choice is yes
-            self.declare_parameter("save_img_path", "/home/shourya/robot_ws/src/opencv_comparison/received_images") #declaring parameter if the user has asked to save the images
-            self.save_path = self.get_parameter("save_img_path").get_parameter_value().string_value
+        self.save_converted_images = self.get_parameter("save_converted_images").get_parameter_value().bool_value
+        self.save_path = "/home/shourya/robot_ws/src/opencv_comparison/received_images"
+        self.camera_usb_raw = self.get_parameter("camera_usb").get_parameter_value().integer_value
 
-        #creating server and initializing variables
-        self.convert_colour_to_greyscale_server = self.create_service(ImageToImage, "/convert_colour_to_greyscale", self.convert_colour_to_greyscale_callback)
+        self.image_capture_sub = self.create_subscription(Bool, "/capture_frame", self.image_capture_callback, 10)
+        self.greyscale_image_pub = self.create_publisher(Image, "/camera/grey_image", 10)
+
         self.bridge = CvBridge()
+        self.cap = cv2.VideoCapture(self.camera_usb_raw, cv2.CAP_V4L2)
+
+        os.makedirs(os.path.join(self.save_path, "grey_images"), exist_ok=True)
+
+        self.frame = None
+        self.grey_image = None
         self.img_count = 0
-        self.filename_colour = ""
-        self.filename_grey = ""
-        self.get_logger().info("opencv_func_server is ready")
-       
-    def convert_colour_to_greyscale_callback(self, request, response):
-        received_image = None
-        self.img_count += 1
+        self.get_logger().info("opencv_comparison is ready")
 
-        try:
-            received_image = self.bridge.imgmsg_to_cv2(request, "bgr8")
-        except Exception as e:
-            self.get_logger().error(f"error while converting colour to greyscale: {e}")
+    def capture_and_save_image(self):
+        if not self.cap.isOpened():
+            self.get_logger().error(f"Camera index {self.camera_usb_raw} not open")
+            return False
 
-        if received_image is None:
-            print("Error: Could not decode image. Check if format is supported.")
-            return response
+        ret, frame = self.cap.read()
+        if ret:
+            self.img_count += 1
+            self.frame = frame
+            self.get_logger().info(f"Captured frame #{self.img_count}")
 
-        grey_image = cv2.cvtColor(received_image, cv2.COLOR_BGR2GRAY)
-        self.filename_colour = os.path.join(self.save_path, "colour_images", f'colour_frame_{self.img_count}.jpg')
-        self.filename_grey = os.path.join(self.save_path, "grey_images", f'grey_frame_{self.img_count}.jpg')
+            filename_colour = os.path.join(self.save_path, "colour_images", f"captured_image{self.img_count}.png")
+            cv2.imwrite(filename_colour, self.frame)
+            return True
+        else:
+            self.get_logger().error("Could not capture frame")
+            return False
 
-        if self.save_requested_images:
-            cv2.imwrite(self.filename_colour, received_image)
-            cv2.imwrite(self.filename_grey, grey_image)
+    def convert_to_greyscale(self):
+        # Always convert from the raw NumPy 'self.frame'
+        self.grey_image = cv2.cvtColor(self.frame, cv2.COLOR_BGR2GRAY)
 
-        response = self.bridge.cv2_to_imgmsg(grey_image, "rgb8")
-        return response
+        if self.save_converted_images:
+            filename_grey = os.path.join(self.save_path, "grey_images", f'grey_frame_{self.img_count}.png')
+            cv2.imwrite(filename_grey, self.grey_image)
+
+    def image_capture_callback(self, msg):
+        if msg.data:
+            if self.capture_and_save_image():
+                self.convert_to_greyscale()
+
+                message_to_send = self.bridge.cv2_to_imgmsg(self.grey_image, "mono8")
+                self.greyscale_image_pub.publish(message_to_send)
 
 
 def main():
     rclpy.init()
     node = OpenCvFuncs()
-    rclpy.spin(node)
-    node.destroy_node()
-    rclpy.shutdown()
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        pass
+    finally:
+        node.destroy_node()
+        rclpy.shutdown()
+
 
 if __name__ == '__main__':
     main()

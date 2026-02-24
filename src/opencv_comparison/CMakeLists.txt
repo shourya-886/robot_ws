@@ -18,12 +18,11 @@ ament_python_install_package(${PROJECT_NAME})
 
 install(PROGRAMS
   ${PROJECT_NAME}/opencv_funcs.py
-  ${PROJECT_NAME}/camera.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
 install(
-  DIRECTORY saved_images
+  DIRECTORY received_images
   DESTINATION share/${PROJECT_NAME}
 )
 
