@@ -17,12 +17,12 @@ find_package(OpenCV REQUIRED)
 ament_python_install_package(${PROJECT_NAME})
 
 install(PROGRAMS
-  ${PROJECT_NAME}/opencv_funcs.py
+  ${PROJECT_NAME}/colour_to_grey_conversion.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
 install(
-  DIRECTORY received_images
+  DIRECTORY saved_images
   DESTINATION share/${PROJECT_NAME}
 )
 
