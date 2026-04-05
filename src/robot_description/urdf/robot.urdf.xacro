@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
 <robot name="robot" xmlns:xacro="http://ros.org/wiki/xacro">
 
+    <xacro:include filename="$(find robot_description)/urdf/robot_gazebo.xacro" />
+
     <material name="blue">
         <color rgba="0 0 1 1"/>
     </material>
@@ -37,6 +39,8 @@
                 <mesh filename="package://robot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>    
             </geometry>
             <origin xyz="0 0 0.0015" rpy="0 0 1.57"/>
+            <material name="black"/>
+            
         </visual>
 
         <collision>
@@ -61,6 +65,7 @@
                 <mesh filename="package://robot_description/meshes/new_laser_link.stl"/>    
             </geometry>
             <origin xyz="0 0 0" rpy="0 0 0"/>
+            <material name="dark_grey"/>
         </visual>
 
         <collision>
@@ -137,6 +142,7 @@
                 <mesh filename="package://robot_description/meshes/caster_rear_link.stl" scale="0.001 0.001  0.001"/>    
             </geometry>    
             <origin xyz="0 0 0" rpy="0 0 1.57"/>
+            <material name="silver"/>
         </visual>
 
         <collision>
@@ -161,6 +167,7 @@
                 <mesh filename="package://robot_description/meshes/caster_front_link.stl" scale="0.001 0.001  0.001"/>    
             </geometry>    
             <origin xyz="0 0 0" rpy="0 0 1.57"/>
+            <material name="silver"/>
         </visual>
 
         <collision>
