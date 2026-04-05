@@ -41,4 +41,19 @@
     <minDepth>0.001</minDepth>
     <maxVel>1.0</maxVel>
   </gazebo>
+
+  <gazebo><!-- checking if user has ignition gazebo or not-->
+    <xacro:if value="$(arg is_ignition)"><!--if user has ros2 humble and ingition gazebo-->
+      <plugin filename="ign_ros2_control-system" name="ign_ros2_control::IgnitionROS2ControlPlugin"> <!-- loading ignition gazebo control system bcuz user has ros2 humble-->
+        <parameters></parameters>
+      </plugin>
+    </xacro:if>
+
+    <xacro:unless value="$(arg is_ignition)"> <!-- if user has ros2 jazzy and gazebo-->
+      <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboROS2ControlPlugin"> <!-- loading gazebo control system bcuz user has ros2 jazzy-->
+        <parameters></parameters>
+      </plugin>
+    </xacro:unless>
+  </gazebo>
+
 </robot>
