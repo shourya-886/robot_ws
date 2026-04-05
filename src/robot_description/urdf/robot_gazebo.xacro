@@ -2,7 +2,7 @@
 
 <robot name="robot" xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <!-- Wheels -->
+    <!-- Wheels -->
   <gazebo reference="wheel_left_link">
     <mu1>1000000000000000.0</mu1>
     <mu2>1000000000000000.0</mu2>
@@ -45,13 +45,13 @@
   <gazebo><!-- checking if user has ignition gazebo or not-->
     <xacro:if value="$(arg is_ignition)"><!--if user has ros2 humble and ingition gazebo-->
       <plugin filename="ign_ros2_control-system" name="ign_ros2_control::IgnitionROS2ControlPlugin"> <!-- loading ignition gazebo control system bcuz user has ros2 humble-->
-        <parameters></parameters>
+        <parameters>$(find robot_controller)/config/robot_controllers.yaml</parameters> <!-- loading yaml file from robot_controller pkg into ros2_control system-->
       </plugin>
     </xacro:if>
 
     <xacro:unless value="$(arg is_ignition)"> <!-- if user has ros2 jazzy and gazebo-->
-      <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboROS2ControlPlugin"> <!-- loading gazebo control system bcuz user has ros2 jazzy-->
-        <parameters></parameters>
+      <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin"> <!-- loading gazebo control system bcuz user has ros2 jazzy-->
+        <parameters>$(find robot_controller)/config/robot_controllers.yaml</parameters> <!-- loading yaml file from robot_controller pkg into ros2_control system-->
       </plugin>
     </xacro:unless>
   </gazebo>
