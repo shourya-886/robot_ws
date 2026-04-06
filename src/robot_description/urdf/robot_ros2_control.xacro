@@ -2,20 +2,23 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot">
 
     <ros2_control name="RobotSystem" type="system">
-        
+
+        <!-- ros2_control Gazebo -->
+        <!-- ROS 2 Humble -->
         <xacro:if value="$(arg is_ignition)">
             <hardware>
                 <plugin>ign_ros2_control/IgnitionSystem</plugin>
             </hardware>
         </xacro:if>
 
+        <!-- ROS 2 Iron or above -->
         <xacro:unless value="$(arg is_ignition)">
             <hardware>
                 <plugin>gz_ros2_control/GazeboSimSystem</plugin>
             </hardware>
         </xacro:unless>
         
-
+        <!-- ros2_control Common Interfaces -->
         <joint name="wheel_right_joint">
             <command_interface name="velocity">
               <param name="min">-1</param>
@@ -26,11 +29,9 @@
         </joint>
 
         <joint name="wheel_left_joint">
-            <!-- command interface means the inetrface through which we will send commands for wheels to rotate-->
-            <!-- state interface means the interface through which we will read the state of the motors-->
-            <command_interface name="velocity"> <!-- defining the interfaces we want for wheel-->
-              <param name="min">-1</param> <!-- min limit for motor.. value is in rad/sec-->
-              <param name="max">1</param> <!-- max limit for motor.. value is in rad/sec-->
+            <command_interface name="velocity">
+              <param name="min">-1</param>
+              <param name="max">1</param>
             </command_interface>
             <state_interface name="position" />
             <state_interface name="velocity" />
