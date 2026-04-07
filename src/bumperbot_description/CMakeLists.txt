@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(robot_description)
+project(bumperbot_description)
 
 
 find_package(ament_cmake REQUIRED)

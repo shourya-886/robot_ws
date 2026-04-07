@@ -6,10 +6,10 @@
 
     
     <!-- including gazebo parameters from file-->
-    <xacro:include filename="$(find robot_description)/urdf/robot_gazebo.xacro" />
+    <xacro:include filename="$(find bumperbot_description)/urdf/robot_gazebo.xacro" />
 
     <!-- including ros2_control parametersfrom file-->
-    <xacro:include filename="$(find robot_description)/urdf/robot_ros2_control.xacro" />
+    <xacro:include filename="$(find bumperbot_description)/urdf/robot_ros2_control.xacro" />
 
     <material name="blue">
         <color rgba="0 0 1 1"/>
@@ -44,7 +44,7 @@
 
         <visual>
             <geometry>
-                <mesh filename="package://robot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>    
+                <mesh filename="package://bumperbot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>    
             </geometry>
             <origin xyz="0 0 0.0015" rpy="0 0 1.57"/>
             <material name="black"/>
@@ -53,7 +53,7 @@
 
         <collision>
             <geometry>
-                <mesh filename="package://robot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>    
+                <mesh filename="package://bumperbot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>    
             </geometry>
             <origin xyz="0 0 0.0015" rpy="0 0 1.57"/>
         </collision>
@@ -70,7 +70,7 @@
 
         <visual>
             <geometry>
-                <mesh filename="package://robot_description/meshes/new_laser_link.stl"/>    
+                <mesh filename="package://bumperbot_description/meshes/new_laser_link.stl"/>    
             </geometry>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <material name="dark_grey"/>
@@ -78,7 +78,7 @@
 
         <collision>
             <geometry>
-                <mesh filename="package://robot_description/meshes/new_laser_link.stl"/>    
+                <mesh filename="package://bumperbot_description/meshes/new_laser_link.stl"/>    
             </geometry>
             <origin xyz="0 0 0" rpy="0 0 0"/>
         </collision>
@@ -95,7 +95,7 @@
 
         <visual>
             <geometry>
-                <mesh filename="package://robot_description/meshes/wheel_right_link.stl" scale="0.001 0.001 0.001"/>    
+                <mesh filename="package://bumperbot_description/meshes/wheel_right_link.stl" scale="0.001 0.001 0.001"/>    
             </geometry>
             <origin xyz="0 0 0" rpy="-1.57 0 0"/>
             <material name="blue" />   
@@ -103,7 +103,7 @@
 
         <collision>
             <geometry>
-                <mesh filename="package://robot_description/meshes/wheel_right_link.stl" scale="0.001 0.001 0.001"/>    
+                <mesh filename="package://bumperbot_description/meshes/wheel_right_link.stl" scale="0.001 0.001 0.001"/>    
             </geometry>
             <origin xyz="0 0 0" rpy="-1.57 0 0"/>
             <material name="blue" />   
@@ -121,7 +121,7 @@
 
         <visual>
             <geometry>
-                <mesh filename="package://robot_description/meshes/wheel_left_link.stl" scale="0.001 0.001 0.001"/>    
+                <mesh filename="package://bumperbot_description/meshes/wheel_left_link.stl" scale="0.001 0.001 0.001"/>    
             </geometry>
             <origin xyz="0 0 0" rpy="1.57 0 0"/>
             <material name="blue" />   
@@ -129,7 +129,7 @@
 
         <collision>
             <geometry>
-                <mesh filename="package://robot_description/meshes/wheel_left_link.stl" scale="0.001 0.001 0.001"/>    
+                <mesh filename="package://bumperbot_description/meshes/wheel_left_link.stl" scale="0.001 0.001 0.001"/>    
             </geometry>
             <origin xyz="0 0 0" rpy="1.57 0 0"/>
             <material name="blue" />   
@@ -147,7 +147,7 @@
 
         <visual>
             <geometry>
-                <mesh filename="package://robot_description/meshes/caster_rear_link.stl" scale="0.001 0.001  0.001"/>    
+                <mesh filename="package://bumperbot_description/meshes/caster_rear_link.stl" scale="0.001 0.001  0.001"/>    
             </geometry>    
             <origin xyz="0 0 0" rpy="0 0 1.57"/>
             <material name="silver"/>
@@ -155,7 +155,7 @@
 
         <collision>
             <geometry>
-                <mesh filename="package://robot_description/meshes/caster_rear_link.stl" scale="0.001 0.001  0.001"/>    
+                <mesh filename="package://bumperbot_description/meshes/caster_rear_link.stl" scale="0.001 0.001  0.001"/>    
             </geometry>    
             <origin xyz="0 0 0" rpy="0 0 1.57"/>
         </collision>
@@ -172,7 +172,7 @@
 
         <visual>
             <geometry>
-                <mesh filename="package://robot_description/meshes/caster_front_link.stl" scale="0.001 0.001  0.001"/>    
+                <mesh filename="package://bumperbot_description/meshes/caster_front_link.stl" scale="0.001 0.001  0.001"/>    
             </geometry>    
             <origin xyz="0 0 0" rpy="0 0 1.57"/>
             <material name="silver"/>
@@ -180,7 +180,7 @@
 
         <collision>
             <geometry>
-                <mesh filename="package://robot_description/meshes/caster_front_link.stl" scale="0.001 0.001  0.001"/>    
+                <mesh filename="package://bumperbot_description/meshes/caster_front_link.stl" scale="0.001 0.001  0.001"/>    
             </geometry>    
             <origin xyz="0 0 0" rpy="0 0 1.57"/>
         </collision>

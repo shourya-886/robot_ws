@@ -10,7 +10,7 @@ from launch_ros.parameter_descriptions import ParameterValue
 
 
 def generate_launch_description():
-    robot_description_dir = get_package_share_directory("robot_description")
+    robot_description_dir = get_package_share_directory("bumperbot_description")
 
     model_arg = DeclareLaunchArgument(name="model", default_value=os.path.join(
                                         robot_description_dir, "urdf", "robot.urdf.xacro"

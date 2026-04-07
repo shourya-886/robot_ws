@@ -11,8 +11,9 @@ def generate_launch_description():
         arguments=[
             "joint_state_broadcaster",
             "--controller-manager",
-            "/controller_manager",
+            "controller_manager",
         ],
+        parameters=[{"use_sim_time": True}] # Add this
     )
 
     simple_controller = Node(
@@ -20,8 +21,9 @@ def generate_launch_description():
         executable="spawner",
         arguments=["simple_velocity_controller",
                 "--controller-manager",
-                "/controller_manager"
-        ]
+                "controller_manager"
+        ],
+        parameters=[{"use_sim_time": True}] # Add this
     )
 
     return LaunchDescription(
