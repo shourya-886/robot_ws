@@ -15,7 +15,7 @@ def generate_launch_description():
     robot_description = get_package_share_directory("bumperbot_description")
 
     model_arg = DeclareLaunchArgument(name="model", default_value=os.path.join(
-                                        robot_description, "urdf", "robot.urdf.xacro"
+                                        robot_description, "urdf", "bumperbot.urdf.xacro"
                                         ),
                                       description="Absolute path to robot urdf file"
     )
@@ -60,7 +60,7 @@ def generate_launch_description():
         executable="create",
         output="screen",
         arguments=["-topic", "robot_description",
-                   "-name", "robot"],
+                   "-name", "bumperbot"],
     )
 
     gz_ros2_bridge = Node(
