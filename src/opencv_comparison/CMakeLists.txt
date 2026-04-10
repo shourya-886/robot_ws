@@ -21,10 +21,10 @@ install(PROGRAMS
   DESTINATION lib/${PROJECT_NAME}
 )
 
-install(
-  DIRECTORY saved_images
-  DESTINATION share/${PROJECT_NAME}
-)
+# install(
+#   DIRECTORY saved_images
+#   DESTINATION share/${PROJECT_NAME}
+# )
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

@@ -26,10 +26,10 @@ install(PROGRAMS
 
 # 4. Install models and image folders to the share directory
 # This is where get_package_share_directory() looks
-install(
-  DIRECTORY models received_images
-  DESTINATION share/${PROJECT_NAME}
-)
+# install(
+#   DIRECTORY models received_images
+#   DESTINATION share/${PROJECT_NAME}
+# )
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
