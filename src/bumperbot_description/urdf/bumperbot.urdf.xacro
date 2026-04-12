@@ -15,24 +15,24 @@
   
   <link name="base_link">
     <inertial>
-      <origin xyz="0.0065 0.002607 0.020274" rpy="0 0 0"/>
-      <mass value="0.947792"/>
-      <inertia ixx="3.036"    ixy="-0.4767"  ixz="-0.511"
-               iyy="1.659"    iyz="-1.036"
-               izz="3.374" />
+      <origin xyz="0.000392694 0.003603923 0.028354103" rpy="0 0 0"/>
+      <mass value="1.1796479"/>
+      <inertia ixx="0.010666756"    ixy="0.000115581"  ixz="0.001086391"
+               iyy="0.011710101"    iyz="-0.000017452"
+               izz="0.00663569" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0.0015" rpy="0 0 1.57" />
-      <material name="black"/>
+      <origin xyz="0 0 0.0015" rpy="0 0 0" />
+      <!-- <material name="black"/> -->
       
       <geometry>
-        <mesh filename="package://bumperbot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://bumperbot_description/meshes/base_link.stl"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="0 0 0.0015" rpy="0 0 1.57" />
+      <origin xyz="0 0 0.0015" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://bumperbot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://bumperbot_description/meshes/base_link.stl"/>
       </geometry>
     </collision>
   </link>
@@ -44,22 +44,22 @@
   </joint>
 
   <link name="wheel_right_link">
-    <inertial>
-      <origin xyz="6.671e-12 -1.094e-11 0.012102" rpy="0 0 0"/>
-      <mass value="0.09205" />
-      <inertia ixx="9.3607e-05"  ixy="-4.428e-15"  ixz="6.941e-16"
-               iyy="9.3607e-05"  iyz="-1.133e-15"
-               izz="1.802e-04" />
+   <inertial>
+      <origin xyz="0 9.713661142e-10 0.016398450" rpy="0 0 0" />
+      <mass value="0.092049771" />
+      <inertia ixx="0.000093607"  ixy="0"  ixz="0"
+               iyy="0.000093607"  iyz="0"
+               izz="0.000180163" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0" rpy="-1.57 0 0" />
+      <origin xyz="0 0 0" rpy="1.57 0 0" />
       <material name="blue" />
       <geometry>
-        <mesh filename="package://bumperbot_description/meshes/wheel_right_link.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://bumperbot_description/meshes/wheel_right_link.stl"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="0 0.008 0" rpy="-1.57 0 0" />
+      <origin xyz="0 -0.017 0" rpy="1.57 0 0" />
       <geometry>
         <cylinder radius="0.0534" length="0.0285"/>
       </geometry>
@@ -67,7 +67,7 @@
   </link>
 
   <joint name="wheel_right_joint" type="continuous">
-    <origin xyz="0 -0.14355 0.015" rpy="0 0 0" />
+    <origin xyz="0 -0.11455 0.015" rpy="0 0 0" />
     <parent link="base_link" />
     <child link="wheel_right_link" />
     <axis xyz="0 1 0" />
@@ -76,21 +76,21 @@
   <link
     name="wheel_left_link">
     <inertial>
-      <origin xyz="6.671e-12 -1.094e-11 0.012102" rpy="0 0 0" />
-      <mass value="0.09205" />
-      <inertia ixx="9.3607e-05"  ixy="-4.428e-15"  ixz="6.941e-16"
-               iyy="9.3607e-05"  iyz="-1.133e-15"
-               izz="1.802e-04" />
+      <origin xyz="0 9.713661142e-10 0.016398450" rpy="0 0 0" />
+      <mass value="0.092049771" />
+      <inertia ixx="0.000093607"  ixy="0"  ixz="0"
+               iyy="0.000093607"  iyz="0"
+               izz="0.000180163" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0" rpy="1.57 0 0" />
+      <origin xyz="0 0 0" rpy="-1.57 0 0" />
       <material name="blue" />
       <geometry>
-        <mesh filename="package://bumperbot_description/meshes/wheel_left_link.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://bumperbot_description/meshes/wheel_left_link.stl"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="0 -0.009 0" rpy="1.57 0 0" />
+      <origin xyz="0 0.017 0" rpy="-1.57 0 0" />
       <geometry>
         <cylinder radius="0.0534" length="0.0285"/>
       </geometry>
@@ -98,7 +98,7 @@
   </link>
 
   <joint name="wheel_left_joint" type="continuous">
-    <origin xyz="0 0.14355 0.015" rpy="0 0 0" />
+    <origin xyz="0 0.11455 0.015" rpy="0 0 0" />
     <parent link="base_link" />
     <child link="wheel_left_link" />
     <axis xyz="0 1 0" />
@@ -106,21 +106,21 @@
 
   <link name="caster_front_link">
     <inertial>
-      <origin xyz="0.000348 -0.003895 0.018625" rpy="0 0 0" />
-      <mass value="0.030003" />
-      <inertia ixx="5.032352e-06"  ixy="7.6e-10"    ixz="-5.91e-10"
-               iyy="5.178243e-06"  iyz="-2.92e-10"
-               izz="5.249228e-06" />
+      <origin xyz="-0.055462489 0.004963490 0.019704843" rpy="0 0 0" />
+      <mass value="0.034768653" />
+      <inertia ixx="0.000006952"  ixy="-8.168396889e-10"    ixz="4.36638148e-10"
+               iyy="0.00000631"  iyz="-8.101927285e-10"
+               izz="0.000006556" />
     </inertial>
     <visual>
       <origin xyz="0 0 0" rpy="0 0 1.57" />
       <material name="silver"/>
       <geometry>
-        <mesh filename="package://bumperbot_description/meshes/caster_front_link.stl" scale="0.001 0.001  0.001"/>
+        <mesh filename="package://bumperbot_description/meshes/caster_front_link.stl"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="0 0 0.0211305" rpy="0 0 0" />
+      <origin xyz="0 0 0.0211305" rpy="0 0 1.57" />
       <geometry>
         <sphere radius="0.0211305"/>
       </geometry>
@@ -135,21 +135,21 @@
   
   <link name="caster_rear_link">
     <inertial>
-      <origin xyz="0.000348 -0.003895 0.018625" rpy="0 0 0" />
-      <mass value="0.030003" />
-      <inertia ixx="5.032352e-06"  ixy="7.6e-10"    ixz="-5.91e-10"
-               iyy="5.178243e-06"  iyz="-2.92e-10"
-               izz="5.249228e-06" />
+      <origin xyz="-0.055462489 0.004963490 0.019704843" rpy="0 0 0" />
+      <mass value="0.034768653" />
+      <inertia ixx="0.000006952"  ixy="-8.168396889e-10"    ixz="4.36638148e-10"
+               iyy="0.00000631"  iyz="-8.101927285e-10"
+               izz="0.000006556" />
     </inertial>
     <visual>
       <origin xyz="0 0 0" rpy="0 0 1.57" />
       <material name="silver"/>
       <geometry>
-        <mesh filename="package://bumperbot_description/meshes/caster_rear_link.stl" scale="0.001 0.001  0.001"/>
+        <mesh filename="package://bumperbot_description/meshes/caster_rear_link.stl"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="0 0 0.0211305" rpy="0 0 0" />
+      <origin xyz="0 0 0.0211305" rpy="0 0 1.57" />
       <geometry>
         <sphere radius="0.0211305"/>
       </geometry>
