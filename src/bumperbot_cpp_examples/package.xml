@@ -3,9 +3,9 @@
 <package format="3">
   <name>bumperbot_cpp_examples</name>
   <version>0.0.0</version>
-  <description>ROS 2 Code Examples</description>
-  <maintainer email="antonio.brandi@outlook.it">Antonio Brandi</maintainer>
-  <license>Apache 2.0</license>
+  <description>Robot Description package</description>
+  <maintainer email="shourya@todo.todo">Shourya</maintainer>
+  <license>TODO: License Declaration</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
   <depend>rclcpp</depend>

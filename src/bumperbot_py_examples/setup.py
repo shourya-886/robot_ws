@@ -14,9 +14,9 @@ setup(
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='user',
-    maintainer_email='antonio.brandi@outlook.it',
+    maintainer_email='shourya@todo.todo',
     description='ROS 2 Code Examples',
-    license='Apache 2.0',
+    license='TODO: License Declaration',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
