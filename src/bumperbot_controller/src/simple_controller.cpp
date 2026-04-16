@@ -18,19 +18,19 @@ SimpleController::SimpleController(const std::string& name)
      * Initializes the C++ implementation of the controller node, setting up 
      * Eigen matrices for kinematics and initializing ROS 2 publishers and subscribers.
      */
-    declare_parameter("wheel_radius", 0.033); // Registers the wheel radius parameter with a default value of 33mm.
-    declare_parameter("wheel_separation", 0.17); // Registers the wheel separation parameter with a default value of 170mm.
+    declare_parameter("wheel_radius", 0.052); // Registers the wheel radius parameter with a default value of 33mm.
+    declare_parameter("wheel_separation", 0.2286); // Registers the wheel separation parameter with a default value of 170mm.
     wheel_radius_ = get_parameter("wheel_radius").as_double(); // Fetches the wheel radius value from the parameter server.
     wheel_separation_ = get_parameter("wheel_separation").as_double(); // Fetches the wheel separation value from the parameter server.
-    RCPP_INFO_STREAM(get_logger(), "Using wheel radius " << wheel_radius_); // Logs the active wheel radius to the console.
-    RCPP_INFO_STREAM(get_logger(), "Using wheel separation " << wheel_separation_); // Logs the active wheel separation to the console.
+    RCLCPP_INFO_STREAM(get_logger(), "Using wheel radius " << wheel_radius_); // Logs the active wheel radius to the console.
+    RCLCPP_INFO_STREAM(get_logger(), "Using wheel separation " << wheel_separation_); // Logs the active wheel separation to the console.
     wheel_cmd_pub_ = create_publisher<std_msgs::msg::Float64MultiArray>("/simple_velocity_controller/commands", 10); // Sets up the publisher for sending velocity commands to the hardware controller.
     vel_sub_ = create_subscription<geometry_msgs::msg::TwistStamped>("/bumperbot_controller/cmd_vel", 10, std::bind(&SimpleController::velCallback, this, _1)); // Subscribes to input velocity commands with a bound callback function.
     joint_sub_ = create_subscription<sensor_msgs::msg::JointState>("/joint_states", 10, std::bind(&SimpleController::jointCallback, this, _1)); // Subscribes to wheel joint states for encoder-based odometry.
     odom_pub_ = create_publisher<nav_msgs::msg::Odometry>("/bumperbot_controller/odom", 10); // Sets up the publisher for the odometry message.
 
     speed_conversion_ << wheel_radius_/2, wheel_radius_/2, wheel_radius_/wheel_separation_, -wheel_radius_/wheel_separation_; // Fills the Eigen matrix with differential drive kinematic coefficients.
-    RCPP_INFO_STREAM(get_logger(), "The conversion matrix is \n" << speed_conversion_); // Logs the matrix for verification.
+    RCLCPP_INFO_STREAM(get_logger(), "The conversion matrix is \n" << speed_conversion_); // Logs the matrix for verification.
 
     // Fill the Odometry message with invariant parameters
     odom_msg_.header.frame_id = "odom"; // Assigns the fixed frame ID to the odometry message.

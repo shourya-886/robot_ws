@@ -32,7 +32,6 @@ private:
      * robot's current position and orientation via wheel odometry.
      */
     void jointCallback(const sensor_msgs::msg::JointState &msg); // Private method to handle incoming encoder data (joint states).
-
     rclcpp::Subscription<geometry_msgs::msg::TwistStamped>::SharedPtr vel_sub_; // Shared pointer for the subscriber to the command velocity topic.
     rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr wheel_cmd_pub_; // Shared pointer for the publisher sending wheel speed commands.
     rclcpp::Subscription<sensor_msgs::msg::JointState>::SharedPtr joint_sub_; // Shared pointer for the subscriber to the joint states topic.
