@@ -66,7 +66,7 @@ class MPU6050_Driver(Node):
 
     def init_i2c(self):
         try:
-            self.bus_ = smbus.SMBus(1)
+            self.bus_ = smbus.SMBus(7)
             self.bus_.write_byte_data(DEVICE_ADDRESS, SMPLRT_DIV, 7)
             self.bus_.write_byte_data(DEVICE_ADDRESS, PWR_MGMT_1, 1)
             self.bus_.write_byte_data(DEVICE_ADDRESS, CONFIG, 0)
