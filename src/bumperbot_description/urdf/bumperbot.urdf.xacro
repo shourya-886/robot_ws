@@ -164,7 +164,7 @@
     <child link="caster_rear_link" />
   </joint>
 
-  <link name="laser">
+  <link name="laser_link">
       <inertial>
         <origin xyz="0.0000267575 0.0000021499 0.0000258840" rpy="0 0 0"/>
         <mass value="0.1700"/>
@@ -192,7 +192,7 @@
   <joint name="laser_joint" type="fixed">
         <origin xyz="0 0 0.131" rpy="0 0 3.14" /> <!-- z= 0.042(from physical unit) + 0.088(from fusion final assembly without wheels) + 0.001(accounting for plate thickness)-->
         <parent link="base_link" />
-        <child link="laser" />
+        <child link="laser_link" />
   </joint>
 
   <link name="imu_link">
