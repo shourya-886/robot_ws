@@ -3,7 +3,7 @@
 <package format="3">
   <name>bumperbot_msgs</name>
   <version>0.0.0</version>
-  <description>bumperbot messages package</description>
+  <description>Definition of Interfaces for the bumperbot</description>
   <maintainer email="shourya@todo.todo">Shourya</maintainer>
   <license>TODO: License Declaration</license>
 
