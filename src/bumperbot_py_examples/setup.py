@@ -18,7 +18,7 @@ setup(
     description='ROS 2 Code Examples',
     license='TODO: License Declaration',
     tests_require=['pytest'],
-    entry_points={
+     entry_points={
         'console_scripts': [
             'simple_publisher = bumperbot_py_examples.simple_publisher:main',
             'simple_subscriber = bumperbot_py_examples.simple_subscriber:main',
@@ -27,6 +27,7 @@ setup(
             'simple_service_server = bumperbot_py_examples.simple_service_server:main',
             'simple_service_client = bumperbot_py_examples.simple_service_client:main',
             'simple_tf_kinematics = bumperbot_py_examples.simple_tf_kinematics:main',
+            'simple_lifecycle_node = bumperbot_py_examples.simple_lifecycle_node:main',
         ],
     },
 )

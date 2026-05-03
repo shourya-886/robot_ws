@@ -1,10 +1,10 @@
 // L298N H-Bridge Connection PINs
-#define L298N_enA 9  // PWM
-#define L298N_in2 13  // Dir Motor A
-#define L298N_in1 12  // Dir Motor A
+#define L298N_enA 4  // PWM
+#define L298N_in2 50  // Dir Motor A
+#define L298N_in1 53  // Dir Motor A
 
-#define right_encoder_phaseA 3  // Interrupt 
-#define right_encoder_phaseB 5  
+#define right_encoder_phaseA 2  // Interrupt 
+#define right_encoder_phaseB 31  
 
 unsigned int right_encoder_counter = 0;
 String right_encoder_sign = "p";
