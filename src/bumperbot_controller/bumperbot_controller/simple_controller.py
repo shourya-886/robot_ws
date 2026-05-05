@@ -22,7 +22,7 @@ class SimpleController(Node):
         and prepares the Odometry and Transform Broadcaster for localization.
         """
         super().__init__("simple_controller") # Calls the constructor of the base Node class to name the node.
-        self.declare_parameter("wheel_radius", 0.052) # Declares the robot's wheel radius parameter with a default value.
+        self.declare_parameter("wheel_radius", 0.05) # Declares the robot's wheel radius parameter with a default value.
         self.declare_parameter("wheel_separation", 0.2286) # Declares the distance between the two wheels as a parameter.
 
         self.wheel_radius_ = self.get_parameter("wheel_radius").get_parameter_value().double_value # Stores the wheel radius locally as a floating-point number.

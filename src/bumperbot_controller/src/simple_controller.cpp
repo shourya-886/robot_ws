@@ -18,7 +18,7 @@ SimpleController::SimpleController(const std::string& name)
      * Initializes the C++ implementation of the controller node, setting up 
      * Eigen matrices for kinematics and initializing ROS 2 publishers and subscribers.
      */
-    declare_parameter("wheel_radius", 0.052); // Registers the wheel radius parameter with a default value of 33mm.
+    declare_parameter("wheel_radius", 0.05); // Registers the wheel radius parameter with a default value of 33mm.
     declare_parameter("wheel_separation", 0.2286); // Registers the wheel separation parameter with a default value of 170mm.
     wheel_radius_ = get_parameter("wheel_radius").as_double(); // Fetches the wheel radius value from the parameter server.
     wheel_separation_ = get_parameter("wheel_separation").as_double(); // Fetches the wheel separation value from the parameter server.
