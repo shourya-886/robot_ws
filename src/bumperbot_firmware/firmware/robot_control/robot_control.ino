@@ -52,7 +52,7 @@ double Kp_l = 12.8;
 double Ki_l = 8.3;
 double Kd_l = 0.1;
 
-double right_multiplier = 1.1;
+double right_multiplier = 1.0;
 double left_multiplier = 1.0;
 
 // Controller
