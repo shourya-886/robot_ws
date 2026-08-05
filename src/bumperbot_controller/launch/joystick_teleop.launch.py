@@ -13,7 +13,7 @@ def generate_launch_description():
     
     bumperbot_controller_pkg = get_package_share_directory('bumperbot_controller')
 
-    use_sim_time_arg = DeclareLaunchArgument(name="use_sim_time", default_value="False",
+    use_sim_time_arg = DeclareLaunchArgument(name="use_sim_time", default_value="True",
                                       description="Use simulated time"
     )
 

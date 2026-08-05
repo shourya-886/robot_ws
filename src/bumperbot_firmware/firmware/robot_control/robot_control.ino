@@ -44,10 +44,9 @@ double left_wheel_meas_vel = 0.0;     // rad/s
 double right_wheel_cmd = 0.0;             // 0-255
 double left_wheel_cmd = 0.0;              // 0-255
 // Tuning
-double Kp_r = 12.8;
-double Ki_r = 8.3;
+double Kp_r = 11.5;
+double Ki_r = 7.5;
 double Kd_r = 0.1;
-
 double Kp_l = 12.8;
 double Ki_l = 8.3;
 double Kd_l = 0.1;

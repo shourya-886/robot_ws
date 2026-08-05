@@ -18,8 +18,8 @@ class SimpleController(Node):
 
     def __init__(self):
         super().__init__("simple_controller")
-        self.declare_parameter("wheel_radius", 0.06015)
-        self.declare_parameter("wheel_separation", 0.24)
+        self.declare_parameter("wheel_radius", 0.055)
+        self.declare_parameter("wheel_separation", 0.31265)
 
         self.wheel_radius_ = self.get_parameter("wheel_radius").get_parameter_value().double_value
         self.wheel_separation_ = self.get_parameter("wheel_separation").get_parameter_value().double_value

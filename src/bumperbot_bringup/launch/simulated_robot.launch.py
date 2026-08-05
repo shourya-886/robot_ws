@@ -31,8 +31,7 @@ def generate_launch_description():
         ),
         launch_arguments={
             "use_simple_controller": "False",
-            "use_python": "False",
-            "use_sim_time": "True"
+            "use_python": "False"
         }.items(),
     )
     
@@ -53,9 +52,6 @@ def generate_launch_description():
             "launch",
             "global_localization.launch.py"
         ),
-        launch_arguments={
-            "use_sim_time": "true"
-        }.items(),
         condition=UnlessCondition(use_slam)
     )
 
@@ -65,9 +61,6 @@ def generate_launch_description():
             "launch",
             "slam.launch.py"
         ),
-        launch_arguments={
-            "use_sim_time": "true"
-        }.items(),
         condition=IfCondition(use_slam)
     )
 
@@ -77,9 +70,6 @@ def generate_launch_description():
             "launch",
             "navigation.launch.py"
         ),
-        launch_arguments={
-            "use_sim_time": "true"
-        }.items(),
     )
 
     rviz = Node(
