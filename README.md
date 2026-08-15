@@ -1,301 +1,310 @@
-# BumperBot ROS2 Workspace
+# BumperBot — Autonomous Wall Crack Inspection Robot
 
-This repository is a ROS 2 workspace for the "BumperBot" robot platform. It contains multiple packages covering bringup, controllers, firmware integration, mapping & localization, navigation (Nav2), utilities, examples, and message definitions.
+**ROS 2 Humble workspace for a differential-drive robot built for autonomous crack detection on heritage monument walls.**
+Built for WRO 2026 (Future Engineers). Also referred to as *Project Heritage Shield* / *Project Sentinel* in competition documentation.
 
-This README is intentionally comprehensive: it describes the repository layout, dependencies, recommended system setup, build instructions, runtime and simulation instructions, testing, troubleshooting tips, and contribution guidance.
-
----
-
-Table of Contents
-- Project overview
-- Supported ROS 2 distributions (recommended)
-- System and ROS dependencies
-- Hardware & simulator prerequisites
-- Repository file tree (high-level)
-- Installation (step-by-step)
-  - Ubuntu / ROS 2 Humble (recommended)
-  - rosdep dependency install
-  - Python packages
-- Building the workspace (colcon)
-- Running the robot (simulation and real hardware)
-  - Simulated robot (Gazebo / ros_gz_sim)
-  - Real robot / bringup
-  - Running individual nodes
-- Launch files and common run scenarios
-- Testing (colcon test)
-- Development workflow and adding packages
-- Troubleshooting and tips
-- Contributing
-- License & maintainers
+- **Team:** Shourya, Prisha Prasad, Medhansh Yogesh Jagtap
+- **Mentor:** Santosh Kumar
+- **Schools:** Akshara International School, Phoenix Greens School of Learning
+- **Maintainer contact:** pihushourya100@gmail.com
 
 ---
 
-Project overview
+## Table of Contents
 
-This workspace contains a multi-package ROS 2 project for BumperBot. It integrates firmware/hardware interfaces, controllers (C++ and Python examples), localization, mapping (SLAM), navigation (Nav2), message definitions, and example code. The repository uses standard ROS 2 ament package layout (package.xml format 3, ament_cmake, and ament_cmake_python in places).
+1. [What this robot does](#what-this-robot-does)
+2. [Hardware](#hardware)
+3. [System architecture](#system-architecture)
+4. [TF tree](#tf-tree)
+5. [Package-by-package breakdown](#package-by-package-breakdown)
+6. [Installation](#installation)
+7. [Building the workspace](#building-the-workspace)
+8. [Running the robot](#running-the-robot)
+9. [Key configuration values](#key-configuration-values)
+10. [Design decisions & known quirks](#design-decisions--known-quirks)
+11. [Known issues / active investigations](#known-issues--active-investigations)
+12. [Development workflow](#development-workflow)
+13. [Troubleshooting](#troubleshooting)
+14. [Roadmap](#roadmap)
+15. [License](#license)
 
-Supported ROS 2 distributions (recommended)
-- Primary tested target (recommended): ROS 2 Humble Hawksbill on Ubuntu 22.04 LTS
-- Likely compatible with later ROS 2 distributions (Rolling, Iron, etc.) but instructions and apt package names may differ. If using a different distro (Galactic, Foxy, etc.), adapt the apt package names and rosdep sources accordingly.
+---
 
-System and ROS dependencies
+## What this robot does
 
-High-level dependencies used across the workspace (extracted from package.xml files):
-- ROS 2 core packages: rclcpp, rclpy, std_msgs, geometry_msgs, nav_msgs
-- TF2 stack: tf2, tf2_ros, tf2_geometry_msgs
-- Navigation2 stack: nav2_core, nav2_costmap_2d, nav2_util
-- Pluginlib
-- ros_gz_sim / Gazebo integration (for simulation)
-- rplidar_ros (for RPLIDAR driver integration)
-- tf_transformations (runtime dependency listed in package.xml)
+BumperBot autonomously navigates around heritage monument interiors/exteriors using a pre-built map, and uses a YOLO/VLM-based vision pipeline to detect cracks and structural damage in walls as it moves. Detected cracks (with location context) are logged to a Firebase backend, with image storage on Cloudinary, for later review by conservators/engineers. The robot is built from scratch — chassis designed in Fusion 360, full sensor and compute stack integrated onto a 3-tier acrylic frame.
 
-Notes:
-- Some firmware code may depend on Python runtime scripts and system libraries for serial/UART access.
-- Several packages use ament_cmake (C++) and ament_cmake_python (Python nodes) build systems.
+The competition-facing narrative: a robot that can be sent into a monument, roam autonomously along walls, flag areas of concern, and produce a navigable digital record of surface condition — without requiring a human to physically inspect every wall segment.
 
-Hardware & simulator prerequisites
-- For simulation: ros_gz (ROS 2 Gazebo bridge) or gazebo/ignition packages as required by the launch files.
-- For the real robot: a microcontroller/embedded controller running firmware that interfaces with ROS topics/services (see bumperbot_firmware package for details). Specific hardware (RPLIDAR A1, IMU MPU6050) is referenced in launch files.
+---
 
-Repository file tree (high-level)
+## Hardware
 
-Top-level:
-- .git/
-- .gitignore
-- README.md (this file)
-- src/  (ROS 2 workspace source folder)
+| Component | Spec |
+|---|---|
+| **Onboard compute** | NVIDIA Jetson Orin Nano Super Developer Kit |
+| **Development PC** | ASUS AiO V470, Intel Core i5-13420H (13th gen), dual-boot Windows 11 + Ubuntu 22.04 LTS |
+| **Motor controller / MCU** | Arduino Mega 2560 R3 |
+| **Drive motors** | N20 GA12-N20 12V motors with quadrature encoders |
+| **Motor driver** | L298N dual H-bridge |
+| **LIDAR** | RPLIDAR A1M8 (running ~7.5Hz on standard USB 5V bus power — see [Design decisions](#design-decisions--known-quirks)) |
+| **IMU** | MPU-6050 |
+| **Power** | 3x 21700 Li-ion cells via Waveshare UPS Module C; 11.1V rail for drive domain |
+| **Arduino <-> Jetson link** | Hardware UART, `Serial2` @ 115200 baud, with a voltage divider on Arduino TX -> Jetson RX |
+| **Chassis** | Custom 3D-printed/acrylic base plate, designed in Fusion 360 |
+| **Design tools** | Fusion 360, KiCad (Windows) - VS Code, PyCharm (both OS) |
+| **Simulation** | Ignition Gazebo 6, ROS 2 Humble, Nav2 (Ubuntu) |
 
-Contents of src/ (packages):
-- bumperbot_bringup/        # top-level launch files for bringing up the robot (real and simulated)
-- bumperbot_controller/    # controller packages and teleop/joystick launchers
-- bumperbot_cpp_examples/  # C++ example nodes and helper code
-- bumperbot_description/    # URDF/XACRO robot description and Gazebo model integration
-- bumperbot_firmware/       # firmware bridge, drivers (IMU driver, hardware_interface launch)
-- bumperbot_localization/   # localization nodes and launch files
-- bumperbot_mapping/        # SLAM and mapping packages and launch files
-- bumperbot_motion/         # motion planner plugin(s) for Nav2
-- bumperbot_msgs/           # custom message and service definitions
-- bumperbot_navigation/    # navigation related launch files and configurations (Nav2)
-- bumperbot_planning/       # planning nodes and configs
-- bumperbot_py_examples/    # Python example nodes and scripts
-- bumperbot_utils/          # utility nodes (e.g., safety_stop) and helpers
+A prior-generation Jetson Nano (carrier board TPS25944L overheating issue) was retired from this project after power-delivery problems; the Orin Nano Super is the current and only onboard compute target.
 
-Note: Each package typically contains a package.xml and either CMakeLists.txt (C++) or setup.py/setup.cfg (Python) as appropriate.
+---
 
-Installation (step-by-step)
+## System architecture
 
-The instructions below assume a Debian-based system (Ubuntu 22.04 LTS) and ROS 2 Humble. If you're using another platform or ROS release, adapt these instructions accordingly.
+```
+                    +-------------------------------------------+
+                    |              Jetson Orin Nano              |
+                    |  +-------------+    +------------------+   |
+   RPLIDAR A1M8 --->|  |  Nav2 Stack |    |  YOLO/VLM crack  |   |
+     (USB)          |  | SLAM/AMCL   |    |  detection node  |   |
+                    |  +------+------+    +--------+---------+   |
+                    |         |                     |             |
+                    |  +------v---------------------v---------+  |
+                    |  |        ros2_control / hardware_interface| |
+                    |  +------------------+---------------------+ |
+                    +---------------------|-----------------------+
+                                           | UART (Serial2, 115200 baud)
+                                    +------v-------+
+                                    | Arduino Mega |--> L298N --> N20 motors + encoders
+                                    |    2560 R3   |
+                                    +--------------+
+                                           |
+                                    MPU-6050 (I2C, direct to Jetson via mpu6050_driver.py)
 
-1) Install system dependencies and ROS 2 (Humble) - Ubuntu 22.04
+                    Crack detections --> Firebase (data) + Cloudinary (images)
+```
 
-- Setup sources and keys for ROS 2 (official guide):
-  - See: https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html
+- **Wheel odometry** is computed on the Arduino (fixed 100ms loop) and streamed as velocity over UART; the Jetson-side `bumperbot_interface.cpp` hardware interface integrates this into wheel position for `ros2_control`.
+- **`diff_drive_controller`** (stock ROS 2 control plugin) is the active controller on both real and simulated robot -- the workspace also contains custom `simple_controller`/`simple_velocity_controller` alternatives for teaching/comparison purposes, selectable via the `use_simple_controller` launch argument.
+- **Localization**: either `slam_toolbox` (`async`/`sync_slam_toolbox_node`) while mapping, or `map_server` + `amcl` once a saved map exists, selected via the `use_slam` launch argument. An EKF-based IMU/odometry fusion pipeline (`bumperbot_localization`) exists in the workspace but is **not currently wired into either bringup path** -- see [Known issues](#known-issues--active-investigations).
+- **Navigation**: standard Nav2 stack -- `controller_server`, `planner_server`, `smoother_server`, `behavior_server`, `bt_navigator`, each with its own `lifecycle_manager`.
 
-Minimal summary of commands (run as a user with sudo privileges):
+---
 
+## TF tree
+
+```
+map --> odom --> base_footprint --> base_link -+--> wheel_left_link
+                                                |--> wheel_right_link
+                                                |--> caster_front_link
+                                                |--> caster_rear_link
+                                                |--> laser_link
+                                                +--> imu_link
+```
+
+- `map -> odom`: published by AMCL (post-mapping) or `slam_toolbox` (while mapping).
+- `odom -> base_footprint`: published by `diff_drive_controller` (`enable_odom_tf: true`).
+- `base_footprint -> base_link`: fixed joint (`base_joint`), defined in `bumperbot.urdf.xacro`.
+- `caster_front_link` and `caster_rear_link` are geometrically identical (same mass, inertia, and mesh) -- the robot uses two passive casters.
+- Wheel joint declaration order in `bumperbot_ros2_control.xacro`: **`wheel_left_joint` (index 0), `wheel_right_joint` (index 1)** -- this ordering is what every controller and the firmware's UART `'l'`/`'r'` index mapping must agree with.
+
+---
+
+## Package-by-package breakdown
+
+| Package | Purpose | Key nodes/executables |
+|---|---|---|
+| **bumperbot_bringup** | Top-level entry points that tie every other package together for a full run | `real_robot.launch.py`, `simulated_robot.launch.py` |
+| **bumperbot_description** | URDF/xacro robot model, meshes, Gazebo/`ros_gz` integration | `gazebo.launch.py`, `display.launch.py`; xacro files under `urdf/` |
+| **bumperbot_firmware** | Jetson<->Arduino hardware interface, Arduino sketches, IMU driver | `hardware_interface.launch.py` (spawns `ros2_control_node` using `bumperbot_interface.cpp`), `mpu6050_driver.py`; Arduino sketch: `firmware/robot_control/robot_control.ino` |
+| **bumperbot_controller** | Diff-drive control, odometry (real + intentionally-noisy variants for EKF testing), joystick teleop, twist relaying | `simple_controller`, `noisy_controller`, `twist_relay`; launch: `controller.launch.py`, `joystick_teleop.launch.py` |
+| **bumperbot_localization** | AMCL-based global localization, and a (currently unwired) EKF-based local localization pipeline fusing wheel odom + IMU | `imu_republisher`; launch: `global_localization.launch.py`, `local_localization.launch.py`; dead code: `kalman_filter.cpp`, `odometry_motion_model.cpp` (tutorial exercises, not referenced by any launch file) |
+| **bumperbot_mapping** | SLAM (`slam_toolbox`) and map-saving | `mapping_with_known_poses` (custom, standalone); launch: `slam.launch.py` |
+| **bumperbot_navigation** | Nav2 configuration -- costmaps, controller/planner/behavior/smoother/BT-navigator params | launch: `navigation.launch.py`; configs: `costmap.yaml`, `controller_server.yaml`, `planner_server.yaml`, `behavior_server.yaml`, `smoother_server.yaml`, `bt_navigator.yaml` |
+| **bumperbot_motion** | Custom Nav2 `FollowPath` controller plugins (alternatives to the stock RPP controller) | `bumperbot_motion::PurePursuit`, `bumperbot_motion::PDMotionPlanner` -- both implemented, currently **dormant** (commented out in `controller_server.yaml` in favor of `RegulatedPurePursuitController`) |
+| **bumperbot_planning** | Custom Nav2 global planner plugins (alternatives to the stock Smac planner) | `bumperbot_planning::AStarPlanner`, `bumperbot_planning::DijkstraPlanner` -- both implemented, currently **dormant** (commented out in `planner_server.yaml` in favor of `SmacPlanner2D`) |
+| **bumperbot_utils** | Safety-stop node (twist_mux lock pattern) | `safety_stop` (currently commented out in bringup) |
+| **bumperbot_msgs** | Custom message/service definitions | -- |
+| **bumperbot_py_examples** / **bumperbot_cpp_examples** | ROS 2 concept tutorials (publishers, subscribers, TF, lifecycle nodes, QoS, services) written while learning ROS 2 | Not used by the robot itself |
+
+---
+
+## Installation
+
+Tested target: **ROS 2 Humble Hawksbill on Ubuntu 22.04 LTS**.
+
+### 1. Install ROS 2 Humble
+
+```bash
 sudo apt update
 sudo apt install -y curl gnupg lsb-release
 sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
 sudo sh -c 'echo "deb [signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" > /etc/apt/sources.list.d/ros2.list'
 sudo apt update
-sudo apt install -y ros-humble-desktop
-
-- Install development tools often required for building ROS 2 workspaces:
-sudo apt install -y python3-colcon-common-extensions python3-rosdep python3-argcomplete build-essential
-
-- Initialize rosdep:
+sudo apt install -y ros-humble-desktop python3-colcon-common-extensions python3-rosdep build-essential
 sudo rosdep init
 rosdep update
+```
 
-2) Clone this repository (if not already):
+### 2. Clone and install dependencies
 
-git clone <this-repo-url>
-cd <this-repo-folder>
-
-(For local development here, the workspace root is the repository root which contains src/.)
-
-3) Install package dependencies using rosdep
-
-From the workspace root (the directory containing src/):
-
+```bash
+git clone https://github.com/shourya-886/robot_ws.git
+cd robot_ws
 rosdep install --from-paths src --ignore-src -r -y
+```
 
-This will attempt to install system packages required by the packages in src via apt. If some packages are not available as Debian packages, rosdep will indicate them and you may need to install or build them manually (for example, third-party drivers or custom packages).
+### 3. Additional packages not always covered by rosdep
 
-4) Additional dependencies
-
-- rplidar_ros: If the RPLIDAR driver package is not available via rosdep for your environment, you can install or build it separately. On Ubuntu/Humble:
-
-sudo apt install -y ros-humble-rplidar-ros || echo "rplidar_ros not available via apt; see package source"
-
-- Nav2 (Navigation2): Many systems will have nav2 packages available via apt. If not installed you can install nav2 packages or build Nav2 from source. Example apt install:
-
+```bash
+sudo apt install -y ros-humble-rplidar-ros
 sudo apt install -y ros-humble-navigation2 ros-humble-nav2-bringup
-
-- ros_gz (bridge between Ignition/Gazebo and ROS 2) if using simulation with ros_gz:
-
 sudo apt install -y ros-humble-ros-gz
+sudo apt install -y ros-humble-slam-toolbox
+sudo apt install -y ros-humble-robot-localization   # for the (currently unwired) EKF pipeline
+```
 
-5) Python package dependencies
+### 4. udev rules for stable device names
 
-Some packages may include Python scripts that require extra pip packages. If present, install them in your system or virtualenv. Common commands:
+The workspace expects fixed device paths (`/dev/rplidar`, `/dev/arduino`) rather than `/dev/ttyUSB0`-style names that can shift between reboots. Set up udev rules mapping these by vendor/product ID (or serial number) for the RPLIDAR and Arduino Mega, and ensure your user is in the `dialout` group:
 
-python3 -m pip install --user -r src/bumperbot_py_examples/requirements.txt || true
-
-(Replace path and requirements file with actual package requirements if present.)
-
-Building the workspace
-
-1) Source ROS 2 environment
-
-Before building, source the ROS 2 installation:
-
-source /opt/ros/humble/setup.bash
-
-2) Build with colcon from workspace root
-
-colcon build --symlink-install
-
-Common options:
-- --symlink-install: useful for Python packages during development
-- --parallel-workers <N>: control parallel build jobs
-
-3) Source the workspace overlay
-
-After a successful build, source the workspace install overlay to use built packages:
-
-source install/setup.bash
-
-Running the robot (simulation and real hardware)
-
-The workspace includes top-level bringup launch files. Use ros2 launch to start full stacks.
-
-1) Simulated robot
-
-- Example: Launch the simulated robot (Gazebo/ros_gz + bringup launch that loads simulated components):
-
-source /opt/ros/humble/setup.bash
-source install/setup.bash
-ros2 launch bumperbot_bringup simulated_robot.launch.py
-
-This launch file includes other launch descriptions such as gazebo.launch.py, controller.launch.py, joystick_teleop.launch.py, slam.launch.py, navigation.launch.py, and global_localization.launch.py depending on configuration.
-
-To run a specific simulation setup (e.g., start Gazebo, then separate launchers), inspect the launch directory: src/bumperbot_bringup/launch/
-
-2) Real robot bringup
-
-- Example: Launch the real robot bringup (connects to hardware drivers and firmware bridge):
-
-source /opt/ros/humble/setup.bash
-source install/setup.bash
-ros2 launch bumperbot_bringup real_robot.launch.py
-
-This will include the hardware_interface launch located in bumperbot_firmware and starts hardware drivers (rplidar driver node, imu driver node, controllers, localization or SLAM based on arguments).
-
-Optional launch arguments
-- The bringup launch files define LaunchArguments; for example real_robot.launch.py defines a boolean launch argument use_slam. Use like:
-
-ros2 launch bumperbot_bringup real_robot.launch.py use_slam:=true
-
-3) Running individual nodes
-
-Nodes can be run individually using ros2 run or by launching their launch files. Example:
-
-ros2 run bumperbot_firmware mpu6050_driver.py
-
-(Exact executable names depend on the package CMakeLists/setup.py; consult each package's executable definitions.)
-
-Launch files and common run scenarios
-
-Commonly used top-level launches (examples present in repo):
-- bumperbot_bringup/simulated_robot.launch.py - Launch stack for running the robot in simulation
-- bumperbot_bringup/real_robot.launch.py - Launch stack for bringing up the real robot and hardware nodes
-- bumperbot_description/launch/gazebo.launch.py - Launch Gazebo models and spawn robot entity
-- controller/joystick_teleop.launch.py - Launch joystick teleop and twist_mux
-- mapping/slam.launch.py - Start SLAM stack (e.g., slam_toolbox or other SLAM node)
-- navigation/navigation.launch.py - Start Nav2 with provided configs
-
-To see available launch files, list the launch folder for each package. For example:
-
-ls src/bumperbot_bringup/launch
-
-Testing
-
-Standard ROS 2 workspace tests can be run with colcon:
-
-colcon test
-colcon test-result --verbose
-
-Note: Not all packages may include unit tests. Some integration behaviours require running in simulation or on hardware.
-
-Development workflow and adding packages
-
-- Add new packages to the src/ directory following ROS 2 package templates (ament_cmake for C++ and ament_python for Python).
-- Update package.xml and CMakeLists.txt or setup.py accordingly.
-- Run rosdep install --from-paths src --ignore-src -r -y after adding dependencies.
-- Build with colcon build and source the overlay.
-
-Tips for plugin-based packages (Nav2 plugin example)
-- If a package exports plugin XML (e.g., motion_planner_plugins.xml), ensure install rules in CMakeLists.txt place plugin xml and library in the package share and lib directories respectively.
-
-Troubleshooting and tips
-
-- "colcon build" fails with missing dependencies: Run rosdep install --from-paths src --ignore-src -r -y and inspect the missing dependencies; install required apt packages or clone missing ROS packages into src.
-- "rclcpp/rclpy not found" errors: Ensure you sourced the correct ROS 2 distribution installation: source /opt/ros/humble/setup.bash
-- Runtime node cannot find message types: Ensure workspace overlay is sourced: source install/setup.bash
-- Permissions for hardware serial ports: Add your user to dialout group if accessing serial devices on Linux: sudo usermod -a -G dialout $USER and re-login.
-- Gazebo spawn errors: Ensure ros_gz (or the appropriate gazebo bridge) and matching Gazebo/Ignition versions are installed.
-
-Contributing
-
-Contributions are welcome. Suggested workflow:
-- Fork and create a feature branch
-- Run existing tests and linting
-- Submit a PR with a clear description of changes
-
-Maintainers and contact
-
-Maintainer: shourya <pihushourya100@gmail.com>
-
-License
-
-The repository's packages include a placeholder license in package.xml. Before redistribution or production use, set an explicit license (e.g., MIT, BSD-3-Clause) in package.xml and add a LICENSE file at the repository root.
-
-Appendix: Useful commands summary
-
-# Setup environment and install dependencies (Ubuntu 22.04 + ROS 2 Humble)
-sudo apt update && sudo apt install -y curl gnupg lsb-release
-sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
-sudo sh -c 'echo "deb [signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" > /etc/apt/sources.list.d/ros2.list'
-sudo apt update
-sudo apt install -y ros-humble-desktop python3-colcon-common-extensions python3-rosdep build-essential
-sudo rosdep init || true
-rosdep update
-
-# From workspace root
-rosdep install --from-paths src --ignore-src -r -y
-source /opt/ros/humble/setup.bash
-colcon build --symlink-install
-source install/setup.bash
-
-# Launch simulated robot
-ros2 launch bumperbot_bringup simulated_robot.launch.py
-
-# Launch real robot bringup (with optional SLAM)
-ros2 launch bumperbot_bringup real_robot.launch.py use_slam:=true
+```bash
+sudo usermod -a -G dialout $USER   # then log out/in
+```
 
 ---
 
-If anything in this README doesn't match the current repository layout or package content, run:
+## Building the workspace
 
-ls -R src | sed -n '1,200p'
+```bash
+source /opt/ros/humble/setup.bash
+cd robot_ws
+colcon build --symlink-install
+source install/setup.bash
+```
 
-and inspect package.xml and CMakeLists.txt/setup.py for each package to confirm executables and launch file names.
+---
 
-Thanks for using BumperBot workspace! If you'd like, README can be tailored to include specific:
-- ROS 2 distro variants (Galactic/I-sim)
-- Platform-specific build instructions (Jetson/arm64)
-- A full auto-generated file tree with file counts and sizes
+## Running the robot
 
+### Simulated robot (Gazebo)
 
+```bash
+ros2 launch bumperbot_bringup simulated_robot.launch.py use_slam:=true
+```
 
+### Real robot
+
+```bash
+ros2 launch bumperbot_bringup real_robot.launch.py use_slam:=true
+```
+
+Set `use_slam:=false` once a map has been saved, to run AMCL against a static map instead of building a new one.
+
+### Uploading Arduino firmware
+
+Flash `src/bumperbot_firmware/firmware/robot_control/robot_control.ino` to the Arduino Mega 2560 R3 before running `real_robot.launch.py` -- this is the sketch that reads encoders, closes the PID velocity loop, and talks `Serial2` to the Jetson. The other sketches in `firmware/` (`simple_encoder_reader`, `simple_motor_control`, `simple_serial_receiver`, `simple_serial_transmitter`) are standalone bring-up/debug sketches, not the production firmware.
+
+### Saving a map
+
+```bash
+ros2 run nav2_map_server map_saver_cli -f ~/robot_ws/maps/my_map
+```
+
+### Individual nodes
+
+```bash
+ros2 run bumperbot_firmware mpu6050_driver.py
+ros2 launch bumperbot_controller joystick_teleop.launch.py
+```
+
+---
+
+## Key configuration values
+
+| Parameter | Value | Location |
+|---|---|---|
+| Wheel separation | 0.31265 m | `bumperbot_controller/config/bumperbot_controllers.yaml` |
+| Wheel radius | 0.055 m | same |
+| Max linear velocity | 0.7 m/s | same |
+| Max angular velocity | 8.5 rad/s | same |
+| `controller_manager` update rate | 100 Hz | same |
+| Arduino control loop interval | 100 ms (fixed) | `firmware/robot_control/robot_control.ino` |
+| UART baud rate | 115200 | `bumperbot_description/urdf/bumperbot_ros2_control.xacro`, `bumperbot_bringup/config/rplidar_a1.yaml` |
+| Arduino serial device | `/dev/arduino` | `bumperbot_ros2_control.xacro` |
+| RPLIDAR serial device | `/dev/rplidar` | `rplidar_a1.yaml` |
+| RPLIDAR actual scan rate | ~7.5Hz (not 10Hz -- see below) | -- |
+| Costmap resolution | 0.05 m/cell | `bumperbot_navigation/config/costmap.yaml` |
+| Robot radius (costmap) | 0.1 m | same |
+| Active global planner | `nav2_smac_planner/SmacPlanner2D` | `planner_server.yaml` |
+| Active local controller | `nav2_regulated_pure_pursuit_controller::RegulatedPurePursuitController` | `controller_server.yaml` |
+
+---
+
+## Design decisions & known quirks
+
+- **RPLIDAR A1M8 runs at ~7.5Hz, not the nameplate 10Hz.** This is expected, not a bug: per Slamtec's datasheet, reaching the full 5.5-10Hz range requires a dedicated 9V supply to the motor, separate from standard 5V USB bus power. Nav2/`slam_toolbox` parameters have been tuned to work correctly at this rate; `scan_mode` in `rplidar_a1.yaml` does not control rotation Hz (only sample rate/measurement mode).
+- **Two controller implementations exist side by side.** `diff_drive_controller` (stock) is the actual active controller on both real and sim bringups (`use_simple_controller:="False"` in `real_robot.launch.py`/`simulated_robot.launch.py`). The custom `simple_controller`/`simple_velocity_controller` path exists for comparison/teaching and can be enabled via the `use_simple_controller` launch argument.
+- **`noisy_controller` runs unconditionally** alongside whichever main controller is active, publishing to `/bumperbot_controller/odom_noisy` -- a deliberately-noise-injected odometry source intended as the `odom0` input for the (currently unwired) EKF pipeline.
+- **Two full sets of Nav2 planner/controller plugins exist**: the stock Nav2 ones (currently active) and custom `bumperbot_planning`/`bumperbot_motion` implementations (currently dormant, commented out in config). Both custom sets are functional and were written as learning exercises / potential fallbacks.
+- **`caster_front_link` and `caster_rear_link` are exact geometric copies** (same mass, inertia, mesh) -- intentional, not a copy-paste bug.
+
+---
+
+## Known issues / active investigations
+
+This section is kept current as issues are found and fixed during development -- treat it as a living log, not a final state.
+
+| Issue | Status |
+|---|---|
+| Rotational odometry drift (suspected toe-in/toe-out from 3D-printed base plate, plus prior software integration bugs) | Two software contributors fixed (heading-integration midpoint fix in `simple_controller.cpp`/`noisy_controller.cpp`; left/right wheel index mapping corrected in `bumperbot_interface.cpp`). Physical wheel-separation measurement (27-33cm spread observed) still under investigation. |
+| `bumperbot_interface.cpp` uses host-measured `dt` (subject to USB/scheduling jitter) instead of the Arduino's known fixed 100ms loop interval | Identified, fix pending |
+| `slam.launch.py` `map_saver_server` threshold parameters use malformed Python set-literal syntax instead of dict syntax | Identified; a corrected version was tested and reportedly triggered lifecycle-manager activation errors -- root cause not yet confirmed, left on the working (malformed, defaults-only) version pending further diagnosis |
+| EKF/IMU-fusion localization pipeline (`local_localization.launch.py`) is implemented but not included in any bringup file -- Nav2 currently runs on raw wheel odometry only | Deferred pending resolution of MPU-6050 electrical noise / lack of dedicated battery monitoring for trigger logic |
+| `AStarPlanner`/`DijkstraPlanner::poseToCell()` use `getOriginX()` instead of `getSizeInCellsX()` -- wrong cell-index formula | Dead code (plugins currently dormant), fix pending before either is ever enabled |
+| Arduino Mega USB (ATmega16U2) enumeration failure on a separate unit, suspected hardware damage | Isolated from the `Serial2` UART path used for runtime motor control; does not affect robot operation, only firmware flashing/debugging on the affected board |
+
+---
+
+## Development workflow
+
+1. Add new packages under `src/` following standard `ament_cmake`/`ament_python` layout.
+2. Update `package.xml` dependencies, then `rosdep install --from-paths src --ignore-src -r -y`.
+3. `colcon build --symlink-install` and re-source `install/setup.bash`.
+4. For new Nav2 plugins (planner/controller/task-executor), export via `pluginlib` XML and ensure `CMakeLists.txt` installs both the plugin XML and the built library to the package's share/lib directories -- follow the pattern already used in `bumperbot_planning`/`bumperbot_motion`.
+5. Firmware changes: edit `firmware/robot_control/robot_control.ino`, re-flash the Arduino Mega, and confirm the UART message format (`l`/`r` + `p`/`n` + value, comma-separated) still matches what `bumperbot_interface.cpp` expects.
+
+---
+
+## Troubleshooting
+
+| Symptom | Fix |
+|---|---|
+| `colcon build` fails on missing deps | `rosdep install --from-paths src --ignore-src -r -y` |
+| `rclcpp`/`rclpy` not found | `source /opt/ros/humble/setup.bash` before building/running |
+| Node can't find custom message types | `source install/setup.bash` after building |
+| Permission denied on `/dev/arduino` or `/dev/rplidar` | Add user to `dialout` group, re-login; confirm udev rules created the expected symlink |
+| Gazebo spawn errors | Confirm `ros-humble-ros-gz` and Ignition Gazebo 6 versions match what `gazebo.launch.py` expects |
+| RPLIDAR reports <10Hz on `ros2 topic hz /scan` | Expected behavior on standard USB bus power -- see [Design decisions](#design-decisions--known-quirks) |
+| Robot doesn't drive straight on a pure `linear.x` command | Check the `'l'`/`'r'` UART index mapping in `bumperbot_interface.cpp` against the `wheel_left_joint`(0)/`wheel_right_joint`(1) order in `bumperbot_ros2_control.xacro` |
+| `slam_toolbox` map corrupted / `odom -> base_footprint` TF appears frozen | Confirm only one localization source (AMCL or `slam_toolbox`) is publishing `map -> odom` at a time -- check `use_slam` argument and that `global_localization.launch.py`/`slam.launch.py` aren't both active |
+
+---
+
+## Roadmap
+
+- [ ] Resolve physical wheel-separation/toe alignment (chassis-level fix)
+- [ ] Apply pending `bumperbot_interface.cpp` `dt` fix (hardcode to match Arduino's 100ms loop)
+- [ ] Diagnose `slam.launch.py` map_saver_server lifecycle-manager error with corrected parameter dict syntax
+- [ ] Fix dormant `AStarPlanner`/`DijkstraPlanner::poseToCell()` cell-index bug
+- [ ] Investigate MPU-6050 noise mitigation, then wire `local_localization.launch.py` (EKF) into bringup
+- [ ] Integrate YOLO/VLM crack-detection pipeline with Nav2 Waypoint Follower via a custom `WaypointTaskExecutor` plugin, so the robot autonomously stops and inspects at each wall-scan point
+- [ ] Firebase live dashboard (SSE streaming) for crack-detection results
+- [ ] Costmap keepout-zone filter masks for protected/fragile monument areas
+- [ ] Command-triggered Nav2 Docking Server demo (fixed-pose, non-charging dock -- no battery monitoring hardware currently installed)
+
+---
+
+## License
+
+Package `package.xml` files currently contain placeholder license fields. Set an explicit license (e.g. MIT, BSD-3-Clause) before any public redistribution, and add a `LICENSE` file at the repository root.
