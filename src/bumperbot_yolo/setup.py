@@ -7,14 +7,14 @@ package_name = 'bumperbot_yolo'
 setup(
     name=package_name,
     version='0.0.0',
-    packages=find_packages(exclude=['test']),
+    package_dir={package_name: 'main'},
+    packages=[package_name],
     data_files=[
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
         # Static files
         ('share/' + package_name + '/models', glob('models/*')),
-        ('share/' + package_name + '/firebase', glob('firebase/*')),
         ('share/' + package_name + '/sample_images', glob('sample_images/*')),
     ],
     install_requires=['setuptools'],
