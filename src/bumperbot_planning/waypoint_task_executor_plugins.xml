@@ -1,0 +1,7 @@
+<class_libraries>
+	<library path="crack_detection_executor">
+		<class type="bumperbot_planning::CrackDetectionExecutor" base_class_type="nav2_core::WaypointTaskExecutor">
+		  <description>Stops at a waypoint, spins right, triggers crack detection, spins back left.</description>
+		</class>
+	</library>
+</class_libraries>

@@ -90,6 +90,37 @@ def generate_launch_description():
         ),
     )
 
+    waypoint_follower = IncludeLaunchDescription(
+        os.path.join(
+            get_package_share_directory("bumperbot_navigation"),
+            "launch",
+            "waypoint.launch.py"
+        ),
+    )
+
+    camera_driver = Node(
+        package="usb_cam",
+        executable="usb_cam_node_exe",
+        name="usb_cam_node",
+        parameters=[os.path.join(
+            get_package_share_directory("bumperbot_bringup"),
+            "config",
+            "usb_cam.yaml"
+        )],
+        remappings=[
+            ("image_raw", "/camera/image_raw"),
+            ("camera_info", "/camera/camera_info"),
+        ],
+        output="screen",
+    )
+
+    crack_detection_stub = Node(
+        package="bumperbot_py_examples",
+        executable="crack_detection_stub",
+        name="crack_detection_stub",
+        output="screen",
+    )
+
     # safety_stop = Node(
     #     package="bumperbot_utils",
     #     executable="safety_stop",
@@ -106,5 +137,8 @@ def generate_launch_description():
         localization,
         slam,
         navigation,
+        waypoint_follower,
+        camera_driver,
+        crack_detection_stub,
         # safety_stop
     ])

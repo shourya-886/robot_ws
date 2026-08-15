@@ -1,0 +1,12 @@
+waypoint_follower:
+  ros__parameters:
+    loop_rate: 20
+    stop_on_failure: false     # keep inspecting remaining waypoints even if one publish fails
+    waypoint_task_executor_plugin: "crack_detection_executor"
+    crack_detection_executor:
+      plugin: "bumperbot_planning::CrackDetectionExecutor"
+      right_turn_rad: -1.5708       # -90 degrees (clockwise) for inspection view
+      left_turn_rad: 1.5708         # +90 degrees, returns to original heading
+      spin_timeout_sec: 15.0
+      camera_topic: "/camera/image_raw"                  # raw feed from usb_cam, subscribed internally only
+      inspection_image_topic: "/waypoint/inspection_image" # single-shot publish, one message per waypoint
