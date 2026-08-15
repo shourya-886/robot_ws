@@ -1,0 +1,26 @@
+/**:
+  ros__parameters:
+    video_device: "/dev/camera"
+
+    framerate: 30.0
+    io_method: "mmap"
+
+    frame_id: "camera_link"
+
+    pixel_format: "mjpeg"
+    av_device_format: "mjpeg"
+
+    image_width: 1280
+    image_height: 720
+
+    camera_name: "c525"
+    camera_info_url: ""
+
+    brightness: 0
+    contrast: 0
+    saturation: 0
+    sharpness: 0
+    gain: 0
+
+    autoexposure: true
+    autofocus: true
