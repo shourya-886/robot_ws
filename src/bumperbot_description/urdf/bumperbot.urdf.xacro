@@ -44,37 +44,6 @@
     <origin xyz="0 0 0.02434923" rpy="0 0 0"/>
   </joint>
 
-  <link name="wheel_left_link">
-   <inertial>
-      <origin xyz="0 9.713661142e-10 0.016398450" rpy="0 0 0" />
-      <mass value="0.092049771" />
-      <inertia ixx="0.000093607"  ixy="0"  ixz="0"
-               iyy="0.000093607"  iyz="0"
-               izz="0.000180163" />
-    </inertial>
-    <visual>
-      <origin xyz="0 0 0" rpy="1.57 0 0" />
-      <material name="blue" />
-      <geometry>
-        <mesh filename="package://bumperbot_description/meshes/wheel_left_link.stl"/>
-      </geometry>
-    </visual>
-    <collision>
-      <origin xyz="0 -0.0146 0" rpy="1.57 0 0" />
-      <geometry>
-        <cylinder radius="0.0534" length="0.0285"/>
-      </geometry>
-    </collision>
-  </link>
-
-   <joint name="wheel_left_joint" type="continuous">
-    <origin xyz="0 0.16513032 0.028" rpy="0 0 0" />
-    <parent link="base_link" />
-    <child link="wheel_left_link" />
-    <axis xyz="0 1 0" />
-  </joint>
-
-
   <link
     name="wheel_right_link">   
     <inertial>
@@ -105,6 +74,37 @@
     <child link="wheel_right_link" />
     <axis xyz="0 1 0" />
   </joint>
+
+  <link name="wheel_left_link">
+   <inertial>
+      <origin xyz="0 9.713661142e-10 0.016398450" rpy="0 0 0" />
+      <mass value="0.092049771" />
+      <inertia ixx="0.000093607"  ixy="0"  ixz="0"
+               iyy="0.000093607"  iyz="0"
+               izz="0.000180163" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="1.57 0 0" />
+      <material name="blue" />
+      <geometry>
+        <mesh filename="package://bumperbot_description/meshes/wheel_left_link.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 -0.0146 0" rpy="1.57 0 0" />
+      <geometry>
+        <cylinder radius="0.0534" length="0.0285"/>
+      </geometry>
+    </collision>
+  </link>
+
+   <joint name="wheel_left_joint" type="continuous">
+    <origin xyz="0 0.16513032 0.028" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="wheel_left_link" />
+    <axis xyz="0 1 0" />
+  </joint>
+
   
   <link name="caster_front_link">
     <inertial>
