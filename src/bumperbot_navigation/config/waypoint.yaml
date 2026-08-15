@@ -2,8 +2,12 @@ waypoint_follower:
   ros__parameters:
     loop_rate: 20.0
     stop_on_failure: false
-    waypoint_task_executor_plugin: "input_at_waypoint"
-    input_at_waypoint:
-      plugin: "nav2_waypoint_follower::InputAtWaypoint"
-      input_topic: "/waypoint_task_trigger"
-      wait_timeout: 10.0
+    waypoint_task_executor_plugin: "photo_at_waypoint"
+
+    # PhotoAtWaypoint plugin configuration
+    photo_at_waypoint:
+      plugin: "nav2_waypoint_follower::PhotoAtWaypoint"
+      enabled: true
+      camera_image_topic_name: "/camera/color/image_raw"
+      save_images_dir: "/home/shourya/robot_ws/src/bumperbot_yolo/images_taken"
+      image_format: "png"
