@@ -15,3 +15,5 @@ __pycache__/
 *.pyc
 *.pyo
 .DS_Store
+src/bumperbot_yolo/firebase/firebase.json
+src/bumperbot_yolo/firebase/firebase_new.json
