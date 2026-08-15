@@ -191,27 +191,14 @@ BumperbotInterface::read(
   const rclcpp::Time &,
   const rclcpp::Duration &)
 {
-  // RCLCPP_INFO_STREAM(
-  //     rclcpp::get_logger("BumperbotInterface"), 
-  //     "entered read function"
-  //   );
-
   if (arduino_.IsDataAvailable())
   {
-    // RCLCPP_INFO_STREAM(
-    //   rclcpp::get_logger("BumperbotInterface"), 
-    //   "received data via uart"
-    // );
     auto dt =
       (rclcpp::Clock().now() - last_run_).seconds();
 
     std::string message;
 
     arduino_.ReadLine(message);
-    // RCLCPP_INFO_STREAM(
-    //   rclcpp::get_logger("BumperbotInterface"), 
-    //   "received data is" << message
-    // );
 
     // Publish incoming serial data
     if (jetson_read_pub_)
@@ -222,9 +209,7 @@ BumperbotInterface::read(
     }
 
     std::stringstream ss(message);
-
     std::string res;
-
     int multiplier = 1;
 
     while (std::getline(ss, res, ','))
@@ -237,7 +222,11 @@ BumperbotInterface::read(
       multiplier =
         (res.at(1) == 'p') ? 1 : -1;
 
-      if (res.at(0) == 'r')
+      // Joint order in bumperbot_ros2_control.xacro is:
+      //   index 0 = wheel_left_joint
+      //   index 1 = wheel_right_joint
+      // The UART protocol uses 'l' and 'r', so keep that mapping explicit.
+      if (res.at(0) == 'l')
       {
         velocity_states_.at(0) =
           multiplier *
@@ -246,7 +235,7 @@ BumperbotInterface::read(
         position_states_.at(0) +=
           velocity_states_.at(0) * dt;
       }
-      else if (res.at(0) == 'l')
+      else if (res.at(0) == 'r')
       {
         velocity_states_.at(1) =
           multiplier *
@@ -257,7 +246,6 @@ BumperbotInterface::read(
       }
     }
 
-    // Fixed typo: Added trailing underscore
     last_run_ = rclcpp::Clock().now();
   }
 
@@ -270,22 +258,27 @@ BumperbotInterface::write(
   const rclcpp::Duration &)
 {
   std::stringstream message_stream;
-  
+
+  // Joint order in bumperbot_ros2_control.xacro is:
+  //   index 0 = wheel_left_joint
+  //   index 1 = wheel_right_joint
+  // The UART protocol expects the right-wheel command first and the
+  // left-wheel command second, so map the ROS joint indices explicitly.
   char right_wheel_sign =
-    velocity_commands_.at(0) >= 0 ? 'p' : 'n';
+    velocity_commands_.at(1) >= 0 ? 'p' : 'n';
 
   char left_wheel_sign =
-    velocity_commands_.at(1) >= 0 ? 'p' : 'n';
+    velocity_commands_.at(0) >= 0 ? 'p' : 'n';
 
   std::string compensate_zeros_right = "";
   std::string compensate_zeros_left = "";
 
-  if (std::abs(velocity_commands_.at(0)) < 10.0)
+  if (std::abs(velocity_commands_.at(1)) < 10.0)
   {
     compensate_zeros_right = "0";
   }
 
-  if (std::abs(velocity_commands_.at(1)) < 10.0)
+  if (std::abs(velocity_commands_.at(0)) < 10.0)
   {
     compensate_zeros_left = "0";
   }
@@ -296,24 +289,18 @@ BumperbotInterface::write(
     << "r"
     << right_wheel_sign
     << compensate_zeros_right
-    << std::abs(velocity_commands_.at(0))
+    << std::abs(velocity_commands_.at(1))
     << ",l"
     << left_wheel_sign
     << compensate_zeros_left
-    << std::abs(velocity_commands_.at(1))
+    << std::abs(velocity_commands_.at(0))
     << ",\n";
 
   try
   {
-    // Modified: Sends "1" over UART instead of the velocity command string
     arduino_.Write(message_stream.str());
-    //  RCLCPP_INFO_STREAM(
-    //   rclcpp::get_logger("BumperbotInterface"), 
-    //   "wrote data to uart"
-    // );
-    
 
-    // Publish outgoing serial data (keeps publishing the actual calculated message for tracking)
+    // Publish outgoing serial data for tracking
     if (jetson_write_pub_)
     {
       std_msgs::msg::String msg;
