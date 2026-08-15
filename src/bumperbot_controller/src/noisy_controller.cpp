@@ -77,9 +77,10 @@ void NoisyController::jointCallback(const sensor_msgs::msg::JointState &state)
     // Calculate the position increment
     double d_s = (wheel_radius_ * dp_right + wheel_radius_ * dp_left) / 2;
     double d_theta = (wheel_radius_ * dp_right - wheel_radius_ * dp_left) / wheel_separation_;
+    double theta_prev = theta_;
     theta_ += d_theta;
-    x_ += d_s * cos(theta_);
-    y_ += d_s * sin(theta_);
+    x_ += d_s * cos(theta_prev + d_theta / 2.0);
+    y_ += d_s * sin(theta_prev + d_theta / 2.0);
 
     // Compose and publish the odom message
     tf2::Quaternion q;
