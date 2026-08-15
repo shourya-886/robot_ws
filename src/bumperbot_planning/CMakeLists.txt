@@ -60,7 +60,6 @@ install(FILES global_planner_plugins.xml
 install(PROGRAMS
   ${PROJECT_NAME}/a_star_planner.py
   ${PROJECT_NAME}/dijkstra_planner.py
-  ${PROJECT_NAME}/send_waypoints.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
