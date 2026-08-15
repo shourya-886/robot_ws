@@ -14,8 +14,8 @@ from nav2_msgs.action import FollowWaypoints
 
 # Edit these to match your saved map's coordinates before running.
 WAYPOINTS = [
-    {"x": 1.0, "y": 0.0, "yaw": 0.0},
-    {"x": 2.0, "y": 0.0, "yaw": 0.0},
+    {"x": 0.705767810344696, "y": 0.006609696429222822, "yaw": 0.0},
+    {"x": 1.5379343032836914, "y": -0.005901696160435677, "yaw": 0.0},
 ]
 
 
