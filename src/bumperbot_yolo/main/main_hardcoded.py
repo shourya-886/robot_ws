@@ -285,31 +285,13 @@ class MainNode(Node):
             message.twist.angular.z = 0.0
             self.get_logger().info("in backward")
 
-        elif direction == "right":
-            message.twist.linear.x = 0.0
-            message.twist.linear.y = 0.0
-            message.twist.linear.z = 0.0
-            message.twist.angular.x = 0.0
-            message.twist.angular.y = 0.0
-            message.twist.angular.z = -1.0
-            self.get_logger().info("in right")
-
-        elif direction == "right_minor":
-            message.twist.linear.x = 0.0
-            message.twist.linear.y = 0.0
-            message.twist.linear.z = 0.0
-            message.twist.angular.x = 0.0
-            message.twist.angular.y = 0.0
-            message.twist.angular.z = -0.2
-            self.get_logger().info("in right_minor")
-
         elif direction == "left":
             message.twist.linear.x = 0.0
             message.twist.linear.y = 0.0
             message.twist.linear.z = 0.0
             message.twist.angular.x = 0.0
             message.twist.angular.y = 0.0
-            message.twist.angular.z = 1.0
+            message.twist.angular.z = -1.0
             self.get_logger().info("in left")
 
         elif direction == "left_minor":
@@ -318,8 +300,26 @@ class MainNode(Node):
             message.twist.linear.z = 0.0
             message.twist.angular.x = 0.0
             message.twist.angular.y = 0.0
-            message.twist.angular.z = 0.2
+            message.twist.angular.z = -0.2
             self.get_logger().info("in left_minor")
+
+        elif direction == "right":
+            message.twist.linear.x = 0.0
+            message.twist.linear.y = 0.0
+            message.twist.linear.z = 0.0
+            message.twist.angular.x = 0.0
+            message.twist.angular.y = 0.0
+            message.twist.angular.z = 1.0
+            self.get_logger().info("in right")
+
+        elif direction == "right_minor":
+            message.twist.linear.x = 0.0
+            message.twist.linear.y = 0.0
+            message.twist.linear.z = 0.0
+            message.twist.angular.x = 0.0
+            message.twist.angular.y = 0.0
+            message.twist.angular.z = 0.2
+            self.get_logger().info("in right_minor")
 
         elif direction == "stop":
             message.twist.linear.x = 0.0
