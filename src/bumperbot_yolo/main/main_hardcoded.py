@@ -168,6 +168,8 @@ class ImageProcessing:
             log_to_file(f"could not open camera, check source specified {camera_input}", "e")
             sys.exit(1)
 
+        cap.set(cv2.CAP_PROP_BUFFERSIZE, 1)
+
         log_to_file("opened camera successfully")
         return cap
 
@@ -177,8 +179,9 @@ class ImageProcessing:
         os.makedirs(CLICKED_DIR, exist_ok=True)
         os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-        for _ in range(2): cap.read()
-        ret, frame = cap.read()
+        for _ in range(5): 
+            cap.read()
+            ret, frame = cap.read()
 
         if not ret:
             log_to_file("raised a IOerror error, failed to capture image", "e")
