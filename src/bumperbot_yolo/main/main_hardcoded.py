@@ -38,7 +38,8 @@ API_SECRET = os.getenv("CLOUDINARY_API_SECRET")
 PORT = '/dev/arduino'
 BAUD_RATE = 115200
 TIME_TO_MOVE_FORWARD = 0.25
-TIME_TO_MOVE_FORWARD_TURN = 1.5
+TIME_TO_MOVE_FORWARD_TURN = 3.5
+TIME_TO_MOVE_FORWARD_TURN_FORWARD = 1.6
 SLEEP_TIME = 2.0
 
 def log_to_file(message: str, severity: str = "d"):
@@ -378,7 +379,7 @@ class MainNode(Node):
         time.sleep(2.0)
 
         start_time = time.time()
-        while time.time() - start_time < TIME_TO_MOVE_FORWARD_TURN:
+        while time.time() - start_time < TIME_TO_MOVE_FORWARD_TURN_FORWARD:
             self.send_command_movement("forward")
             time.sleep(0.1)
 
