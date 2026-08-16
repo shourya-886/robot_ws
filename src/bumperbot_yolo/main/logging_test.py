@@ -41,7 +41,7 @@ class LoggingTestNode(Node):
             log_entry = f"[{timestamp}] {message}\n"
         
         
-        with open("/home/shourya/bumperbot_ws/src/bumperbot_yolo/logs/debug_log.txt", "a") as f:
+        with open("/home/shourya/robot_ws/src/bumperbot_yolo/logs/debug_log.txt", "a") as f:
             f.write(log_entry)
 
 def main(args=None):
