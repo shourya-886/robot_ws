@@ -141,7 +141,7 @@ class ImageProcessing:
         log_to_file("initialised image processing class with updater")
 
     def get_and_increment_counter(self):
-        counter_file = "/home/shourya/bumperbot/src/bumperbot_yolo/setup/counter_inference.txt"
+        counter_file = "/home/shourya/robot_ws/src/bumperbot_yolo/setup/counter_inference.txt"
         os.makedirs(os.path.dirname(counter_file), exist_ok=True)
 
         current_val = 1
