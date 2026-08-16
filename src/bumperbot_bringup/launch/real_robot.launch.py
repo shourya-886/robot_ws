@@ -90,6 +90,13 @@ def generate_launch_description():
         ),
     )
 
+    camera_node = Node(
+            package="bumperbot_yolo",
+            executable="camera_node",
+            name="camera_node",
+            output="screen",
+        )
+
     # waypoint_follower = IncludeLaunchDescription(
     #     os.path.join(
     #         get_package_share_directory("bumperbot_navigation"),
@@ -114,6 +121,7 @@ def generate_launch_description():
         localization,
         slam,
         navigation,
+        camera_node,
         #waypoint_follower,
         # safety_stop
     ])
