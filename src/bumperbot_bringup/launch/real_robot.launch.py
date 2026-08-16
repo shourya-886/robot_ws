@@ -9,9 +9,21 @@ from ament_index_python.packages import get_package_share_directory
 
 def generate_launch_description():
     use_slam = LaunchConfiguration("use_slam")
+    use_yolo = LaunchConfiguration("use_yolo")
+    use_waypoint = LaunchConfiguration("use_waypoint")
 
     use_slam_arg = DeclareLaunchArgument(
         "use_slam",
+        default_value="false"
+    )
+
+    use_yolo_arg = DeclareLaunchArgument(
+        "use_yolo",
+        default_value="false"
+    )
+
+    use_waypoint_arg = DeclareLaunchArgument(
+        "use_waypoint",
         default_value="false"
     )
 
@@ -95,15 +107,26 @@ def generate_launch_description():
             executable="camera_node",
             name="camera_node",
             output="screen",
+            condition=IfCondition(use_yolo)
         )
+    #add yolo node here after modification with IfCondition(use_yolo) to enable it only when use_yolo is true
 
-    # waypoint_follower = IncludeLaunchDescription(
-    #     os.path.join(
-    #         get_package_share_directory("bumperbot_navigation"),
-    #         "launch",
-    #         "waypoint.launch.py"
-    #     ),
-    # )
+    waypoint_follower = IncludeLaunchDescription(
+        os.path.join(
+            get_package_share_directory("bumperbot_navigation"),
+            "launch",
+            "waypoint.launch.py"
+        ),
+        condition=IfCondition(use_waypoint)
+    )
+
+    waypoint_sender = Node(
+        package="bumperbot_navigation",
+        executable="waypoint_sender.py",
+        name="waypoint_sender",
+        output="screen",
+        condition=IfCondition(use_waypoint)
+    )
 
     # safety_stop = Node(
     #     package="bumperbot_utils",
@@ -113,6 +136,8 @@ def generate_launch_description():
     
     return LaunchDescription([
         use_slam_arg,
+        use_yolo_arg,
+        use_waypoint_arg,
         hardware_interface,
         laser_driver,
         controller,
@@ -122,6 +147,6 @@ def generate_launch_description():
         slam,
         navigation,
         camera_node,
-        #waypoint_follower,
-        # safety_stop
+        waypoint_follower,
+        waypoint_sender
     ])
