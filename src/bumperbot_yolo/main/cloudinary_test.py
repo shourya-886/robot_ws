@@ -26,7 +26,7 @@ class CloudinaryTest(Node):
     
     def timer_callback(self):
         if self.count == 0:
-            result = cloudinary.uploader.upload("/home/shourya/bumperbot_ws/src/bumperbot_yolo/sample_images/test.jpeg")
+            result = cloudinary.uploader.upload("/home/shourya/robot_ws/src/bumperbot_yolo/sample_images/test.jpeg")
             self.get_logger().info(f"Uploaded: {result['secure_url']}")
             self.count = 1
 
