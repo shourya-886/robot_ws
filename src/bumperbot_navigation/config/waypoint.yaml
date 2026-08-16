@@ -1,6 +1,6 @@
 waypoint_follower:
   ros__parameters:
-    loop_rate: 20.0
+    loop_rate: 20
     stop_on_failure: false
     waypoint_task_executor_plugin: "photo_at_waypoint"
 

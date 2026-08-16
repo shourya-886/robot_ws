@@ -10,7 +10,6 @@ def generate_launch_description():
     # Get directories and file paths
     nav2_bringup_dir = get_package_share_directory('nav2_bringup')
     bumperbot_navigation_dir = get_package_share_directory('bumperbot_navigation')
-    bumperbot_planning_dir = get_package_share_directory('bumperbot_planning')
     
     default_param_file = os.path.join(
         bumperbot_navigation_dir,
@@ -46,7 +45,7 @@ def generate_launch_description():
 
     waypoint_sender_node = Node(
         package='bumperbot_planning',
-        executable='waypoint_sender',
+        executable='waypoint_sender.py',
         name='waypoint_sender',
         output='screen',
     )

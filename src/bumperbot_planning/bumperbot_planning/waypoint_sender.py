@@ -15,8 +15,8 @@ from nav2_msgs.action import FollowWaypoints
 
 # Hardcoded waypoints, obtained via /clicked_point in RViz2.
 WAYPOINTS = [
-    {"x": 0.705767810344696, "y": 0.006609696429222822, "yaw": 0.0},
-    {"x": 1.5379343032836914, "y": -0.005901696160435677, "yaw": 0.0},
+    {"x": 0.46058911085128784, "y": -0.007205931469798088, "yaw": 0.0},
+    {"x": 1.0022236108779907, "y": -0.007207932882010937, "yaw": 0.0},
 ]
 
 
