@@ -172,19 +172,10 @@ class ImageProcessing:
         return cap
 
     def take_picture_from_camera(self, cap, model, min_thresh):
-        pic_count = self.get_and_increment_counter()
-        folder_name = f"pic{pic_count}"
+        pic_count = self.get_and_increment_counter()  # toggles between 1 and 2
 
-        current_raw_dir = os.path.join(CLICKED_DIR, folder_name)
-        current_infer_dir = os.path.join(OUTPUT_DIR, folder_name)
-
-        os.makedirs(current_raw_dir, exist_ok=True)
-        os.makedirs(current_infer_dir, exist_ok=True)
-
-        for folder in [current_raw_dir, current_infer_dir]:
-            for filename in os.listdir(folder):
-                file_path = os.path.join(folder, filename)
-                if os.path.isfile(file_path): os.unlink(file_path)
+        os.makedirs(CLICKED_DIR, exist_ok=True)
+        os.makedirs(OUTPUT_DIR, exist_ok=True)
 
         for _ in range(2): cap.read()
         ret, frame = cap.read()
@@ -193,7 +184,7 @@ class ImageProcessing:
             log_to_file("raised a IOerror error, failed to capture image", "e")
             raise IOError(f"Failed to capture image from camera at iteration {pic_count}")
 
-        raw_save_path = os.path.join(current_raw_dir, "captured_image_raw.jpg")
+        raw_save_path = os.path.join(CLICKED_DIR, f"pic{pic_count}.jpeg")
         cv2.imwrite(raw_save_path, frame)
         log_to_file(f"wrote image of raw image to path {raw_save_path}")
 
@@ -208,7 +199,7 @@ class ImageProcessing:
                 valid_detections_count += 1
 
         annotated_frame = results[0].plot()
-        infer_save_path = os.path.join(current_infer_dir, "captured_image_inferenced.jpg")
+        infer_save_path = os.path.join(OUTPUT_DIR, f"pic{pic_count}.jpeg")
         cv2.imwrite(infer_save_path, annotated_frame)
         log_to_file(f"wrote image of inferenced image to {infer_save_path}")
 
@@ -219,9 +210,6 @@ class ImageProcessing:
         # Always upload images to Cloudinary and update Firebase URLs regardless of detection count
         self.updater.update_firebase_url(raw_save_path, infer_save_path, pic_count)
         log_to_file("updated firebase url for images in take_picture_from_camera()")
-
-        print(f"objects {valid_detections_count}")
-        log_to_file(f"objects detected on iteration {pic_count}: {valid_detections_count}")
 
 
 class MainNode(Node):

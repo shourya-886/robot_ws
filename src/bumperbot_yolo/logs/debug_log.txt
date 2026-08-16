@@ -510,3 +510,73 @@
 [2026-08-16 19:51:23] objects detected on iteration 2: 1
 [2026-08-16 19:51:29] ending movement sequence B
 [2026-08-16 19:51:29] ----------------------------CODE EXECUTION END----------------------------
+[2026-08-16 20:01:13] initialised cloudinary
+[2026-08-16 20:01:13] initialised firebase
+[2026-08-16 20:01:13] initialised serial at /dev/arduino with 115200
+[2026-08-16 20:01:13] initialised YOLO inference class
+[2026-08-16 20:01:13] initialised image processing class with updater
+[2026-08-16 20:01:13] model exists in path specified, returning YOLO object
+[2026-08-16 20:01:13] source is camera
+[2026-08-16 20:01:13] opened camera successfully
+[2026-08-16 20:01:13] ROS2 node initialized with params
+[2026-08-16 20:01:14] ----------------------------CODE EXECUTION START----------------------------
+[2026-08-16 20:01:15] -------------------number for n is : 1------------------------
+[2026-08-16 20:01:15] starting movement sequence A
+[2026-08-16 20:01:21] wrote image of raw image to path /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images/pic1.jpeg
+[2026-08-16 20:01:23] wrote image of inferenced image to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/pic1.jpeg
+[2026-08-16 20:01:25] updated object's number to firebase True and 2
+[2026-08-16 20:01:25] updated firebase object's no in take_picture_from_camera()
+[2026-08-16 20:01:28] uploaded image to cloudinary and stored url in firebase with each url being: https://res.cloudinary.com/dtwinn6ii/image/upload/v1786890686/kkjxugg41awi7p9zwzkc.jpg and https://res.cloudinary.com/dtwinn6ii/image/upload/v1786890687/oxzpmv2vyaib8xqpicdq.jpg
+[2026-08-16 20:01:28] updated firebase url for images in take_picture_from_camera()
+[2026-08-16 20:01:36] ending movement sequence A
+[2026-08-16 20:01:36] starting movement sequence B
+[2026-08-16 20:01:47] wrote image of raw image to path /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images/pic2.jpeg
+[2026-08-16 20:01:47] wrote image of inferenced image to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/pic2.jpeg
+[2026-08-16 20:01:48] updated object's number to firebase True and 2
+[2026-08-16 20:01:48] updated firebase object's no in take_picture_from_camera()
+[2026-08-16 20:01:52] uploaded image to cloudinary and stored url in firebase with each url being: https://res.cloudinary.com/dtwinn6ii/image/upload/v1786890709/qqb65etzlnlhhq676oln.jpg and https://res.cloudinary.com/dtwinn6ii/image/upload/v1786890710/jimlwuou1ihjikxnt1gk.jpg
+[2026-08-16 20:01:52] updated firebase url for images in take_picture_from_camera()
+[2026-08-16 20:01:58] ending movement sequence B
+[2026-08-16 20:01:58] ----------------------------CODE EXECUTION END----------------------------
+[2026-08-16 20:05:32] initialised cloudinary
+[2026-08-16 20:05:33] initialised firebase
+[2026-08-16 20:05:33] initialised serial at /dev/arduino with 115200
+[2026-08-16 20:05:33] initialised YOLO inference class
+[2026-08-16 20:05:33] initialised image processing class with updater
+[2026-08-16 20:05:33] model exists in path specified, returning YOLO object
+[2026-08-16 20:05:33] source is camera
+[2026-08-16 20:05:33] ERROR ----------could not open camera, check source specified /dev/camera----------
+[2026-08-16 20:06:05] initialised cloudinary
+[2026-08-16 20:06:05] initialised firebase
+[2026-08-16 20:06:05] initialised serial at /dev/arduino with 115200
+[2026-08-16 20:06:05] initialised YOLO inference class
+[2026-08-16 20:06:05] initialised image processing class with updater
+[2026-08-16 20:06:05] model exists in path specified, returning YOLO object
+[2026-08-16 20:06:22] initialised cloudinary
+[2026-08-16 20:06:22] initialised firebase
+[2026-08-16 20:06:22] initialised serial at /dev/arduino with 115200
+[2026-08-16 20:06:22] initialised YOLO inference class
+[2026-08-16 20:06:22] initialised image processing class with updater
+[2026-08-16 20:06:22] model exists in path specified, returning YOLO object
+[2026-08-16 20:06:22] source is camera
+[2026-08-16 20:06:23] opened camera successfully
+[2026-08-16 20:06:23] ROS2 node initialized with params
+[2026-08-16 20:06:24] ----------------------------CODE EXECUTION START----------------------------
+[2026-08-16 20:06:24] -------------------number for n is : 1------------------------
+[2026-08-16 20:06:24] starting movement sequence A
+[2026-08-16 20:06:31] wrote image of raw image to path /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images/pic1.jpeg
+[2026-08-16 20:06:32] wrote image of inferenced image to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/pic1.jpeg
+[2026-08-16 20:06:34] updated object's number to firebase False and 0
+[2026-08-16 20:06:34] updated firebase object's no in take_picture_from_camera()
+[2026-08-16 20:06:38] uploaded image to cloudinary and stored url in firebase with each url being: https://res.cloudinary.com/dtwinn6ii/image/upload/v1786890995/eerbflphnssbhimenppj.jpg and https://res.cloudinary.com/dtwinn6ii/image/upload/v1786890996/wqsk8xxsbjidaoo6k2fi.jpg
+[2026-08-16 20:06:38] updated firebase url for images in take_picture_from_camera()
+[2026-08-16 20:06:45] ending movement sequence A
+[2026-08-16 20:06:45] starting movement sequence B
+[2026-08-16 20:06:57] wrote image of raw image to path /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images/pic2.jpeg
+[2026-08-16 20:06:57] wrote image of inferenced image to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/pic2.jpeg
+[2026-08-16 20:06:58] updated object's number to firebase False and 0
+[2026-08-16 20:06:58] updated firebase object's no in take_picture_from_camera()
+[2026-08-16 20:07:01] uploaded image to cloudinary and stored url in firebase with each url being: https://res.cloudinary.com/dtwinn6ii/image/upload/v1786891018/ixctlay2sriyuliiqdia.jpg and https://res.cloudinary.com/dtwinn6ii/image/upload/v1786891019/ny8smdnsktsujdvjsrwf.jpg
+[2026-08-16 20:07:01] updated firebase url for images in take_picture_from_camera()
+[2026-08-16 20:07:07] ending movement sequence B
+[2026-08-16 20:07:07] ----------------------------CODE EXECUTION END----------------------------
