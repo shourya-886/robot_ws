@@ -30,8 +30,8 @@ from rclpy.qos import QoSProfile, QoSDurabilityPolicy, QoSReliabilityPolicy
 
 
 # CONSTANTS
-OUTPUT_DIR = "/home/shourya/bumperbot/src/bumperbot_yolo/clicked_images_inference"
-CLICKED_DIR = "/home/shourya/bumperbot/src/bumperbot_yolo/clicked_images"
+OUTPUT_DIR = "/home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference"
+CLICKED_DIR = "/home/shourya/robot_ws/src/bumperbot_yolo/clicked_images"
 CLOUD_NAME = os.getenv("CLOUDINARY_CLOUD_NAME")
 API_KEY = os.getenv("CLOUDINARY_API_KEY")
 API_SECRET = os.getenv("CLOUDINARY_API_SECRET")
@@ -56,7 +56,7 @@ def log_to_file(message: str, severity: str = "d"):
     else:
         log_entry = f"[{timestamp}] {message}\n"
 
-    with open("/home/shourya/bumperbot/src/bumperbot_yolo/logs/debug_log.txt", "a") as f:
+    with open("/home/shourya/robot_ws/src/bumperbot_yolo/logs/debug_log.txt", "a") as f:
         f.write(log_entry)
 
 class SerialOperation:
@@ -90,7 +90,7 @@ class Updatation:
         log_to_file("initialised cloudinary")
 
     def initialise_firebase(self):
-        cred = credentials.Certificate("/home/shourya/bumperbot/src/bumperbot_yolo/firebase/firebase_new_new.json")
+        cred = credentials.Certificate("/home/shourya/robot_ws/src/bumperbot_yolo/firebase/firebase_new_new.json")
         firebase_admin.initialize_app(cred, {"databaseURL": "https://testing-65588-default-rtdb.firebaseio.com/"})
         log_to_file("initialised firebase")
 
@@ -162,7 +162,7 @@ class ImageProcessing:
         return current_val
 
     def open_camera(self, camera_input):
-        cap = cv2.VideoCapture(camera_input)
+        cap = cv2.VideoCapture(camera_input, cv2.CAP_V4L2)
         if not cap.isOpened():
             log_to_file(f"could not open camera, check source specified {camera_input}", "e")
             sys.exit(1)

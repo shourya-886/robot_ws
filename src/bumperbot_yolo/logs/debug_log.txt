@@ -334,3 +334,42 @@
 [2026-08-16 19:05:58] Received message: hello
 [2026-08-16 19:05:59] Received message: hello
 [2026-08-16 19:06:00] Received message: hello
+[2026-08-16 19:28:44] initialised cloudinary
+[2026-08-16 19:29:31] initialised cloudinary
+[2026-08-16 19:29:32] initialised firebase
+[2026-08-16 19:29:32] initialised serial at /dev/arduino with 115200
+[2026-08-16 19:29:32] initialised YOLO inference class
+[2026-08-16 19:29:32] initialised image processing class with updater
+[2026-08-16 19:29:32] model exists in path specified, returning YOLO object
+[2026-08-16 19:29:32] source is camera
+[2026-08-16 19:29:32] ERROR ----------could not open camera, check source specified /dev/camera----------
+[2026-08-16 19:33:24] initialised cloudinary
+[2026-08-16 19:33:25] initialised firebase
+[2026-08-16 19:33:25] initialised serial at /dev/arduino with 115200
+[2026-08-16 19:33:25] initialised YOLO inference class
+[2026-08-16 19:33:25] initialised image processing class with updater
+[2026-08-16 19:33:25] model exists in path specified, returning YOLO object
+[2026-08-16 19:33:25] source is camera
+[2026-08-16 19:33:25] opened camera successfully
+[2026-08-16 19:33:25] ROS2 node initialized with params
+[2026-08-16 19:33:26] ----------------------------CODE EXECUTION START----------------------------
+[2026-08-16 19:33:26] -------------------number for n is : 1------------------------
+[2026-08-16 19:33:26] starting movement sequence A
+[2026-08-16 19:33:33] wrote image of raw image to path /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images/pic1/captured_image_raw.jpg
+[2026-08-16 19:33:39] wrote image of inferenced image to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/pic1/captured_image_inferenced.jpg
+[2026-08-16 19:33:41] updated object's number to firebase False and 0
+[2026-08-16 19:33:41] updated firebase object's no in take_picture_from_camera()
+[2026-08-16 19:33:44] uploaded image to cloudinary and stored url in firebase with each url being: https://res.cloudinary.com/dtwinn6ii/image/upload/v1786889022/zac6iaemiarc6bhbz4an.jpg and https://res.cloudinary.com/dtwinn6ii/image/upload/v1786889023/hd9hxexqiehwcrv5ggfl.jpg
+[2026-08-16 19:33:44] updated firebase url for images in take_picture_from_camera()
+[2026-08-16 19:33:44] objects detected on iteration 1: 0
+[2026-08-16 19:33:51] ending movement sequence A
+[2026-08-16 19:33:51] starting movement sequence B
+[2026-08-16 19:34:02] wrote image of raw image to path /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images/pic2/captured_image_raw.jpg
+[2026-08-16 19:34:02] wrote image of inferenced image to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/pic2/captured_image_inferenced.jpg
+[2026-08-16 19:34:02] updated object's number to firebase False and 0
+[2026-08-16 19:34:02] updated firebase object's no in take_picture_from_camera()
+[2026-08-16 19:34:05] uploaded image to cloudinary and stored url in firebase with each url being: https://res.cloudinary.com/dtwinn6ii/image/upload/v1786889043/nkwu6jdtvigdlxges0fp.jpg and https://res.cloudinary.com/dtwinn6ii/image/upload/v1786889044/lnqgnoufdewafumjpbyp.jpg
+[2026-08-16 19:34:05] updated firebase url for images in take_picture_from_camera()
+[2026-08-16 19:34:05] objects detected on iteration 2: 0
+[2026-08-16 19:34:12] ending movement sequence B
+[2026-08-16 19:34:12] ----------------------------CODE EXECUTION END----------------------------

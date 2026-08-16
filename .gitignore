@@ -16,3 +16,5 @@ __pycache__/
 *.pyo
 .DS_Store
 src/bumperbot_yolo/firebase/*
+src/bumperbot_yolo/clicked_images_inference/*
+src/bumperbot_yolo/clicked_images/*
