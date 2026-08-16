@@ -32,7 +32,8 @@ setup(
         'console_scripts': [
             'log_test = bumperbot_yolo.logging_test:main', #testing done
             'serial_test = bumperbot_yolo.serial_test:main', #testing done
-            'image_publisher = bumperbot_yolo.image_publisher:main', #testing done
+            'webcam_compressed = bumperbot_yolo.webcam_compressed:main', #testing done
+            'compressed_to_image = bumperbot_yolo.compressed_to_image:main', #testing done
             'cloudinary_firebase_test = bumperbot_yolo.cloudinary_firebase_test:main', #testing done
             'cloudinary_test = bumperbot_yolo.cloudinary_test:main', #testing done
             'main_with_ros = bumperbot_yolo.main_with_ros:main',
