@@ -10,6 +10,7 @@ def generate_launch_description():
     # Get directories and file paths
     nav2_bringup_dir = get_package_share_directory('nav2_bringup')
     bumperbot_navigation_dir = get_package_share_directory('bumperbot_navigation')
+    bumperbot_planning_dir = get_package_share_directory('bumperbot_planning')
     
     default_param_file = os.path.join(
         bumperbot_navigation_dir,
@@ -42,6 +43,13 @@ def generate_launch_description():
         output='screen',
         parameters=[param_file, {'use_sim_time': use_sim_time}]
     )
+
+    waypoint_sender_node = Node(
+        package='bumperbot_planning',
+        executable='waypoint_sender',
+        name='waypoint_sender',
+        output='screen',
+    )
     
     lifecycle_manager_node = Node(
         package='nav2_lifecycle_manager',
@@ -60,4 +68,5 @@ def generate_launch_description():
         declare_use_sim_time_cmd,
         waypoint_follower_node,
         lifecycle_manager_node,
+        waypoint_sender_node,
         ])
