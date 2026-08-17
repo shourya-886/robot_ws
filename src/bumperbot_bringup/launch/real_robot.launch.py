@@ -111,20 +111,19 @@ def generate_launch_description():
         )
     #add yolo node here after modification with IfCondition(use_yolo) to enable it only when use_yolo is true
 
+    yolo_node = Node(
+            package="bumperbot_yolo",
+            executable="main_ros",
+            name="yolo_node",
+            output="screen",
+            condition=IfCondition(use_yolo)
+    )
     waypoint_follower = IncludeLaunchDescription(
         os.path.join(
             get_package_share_directory("bumperbot_navigation"),
             "launch",
             "waypoint.launch.py"
         ),
-        condition=IfCondition(use_waypoint)
-    )
-
-    waypoint_sender = Node(
-        package="bumperbot_navigation",
-        executable="waypoint_sender.py",
-        name="waypoint_sender",
-        output="screen",
         condition=IfCondition(use_waypoint)
     )
 
@@ -148,5 +147,5 @@ def generate_launch_description():
         navigation,
         camera_node,
         waypoint_follower,
-        waypoint_sender
+        yolo_node,
     ])

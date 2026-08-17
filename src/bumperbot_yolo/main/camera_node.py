@@ -21,7 +21,7 @@ class CameraNode(Node):
     def __init__(self):
         super().__init__('camera_node')
 
-        self.declare_parameter('video_device', 0)
+        self.declare_parameter('video_device', '/dev/camera')
         self.declare_parameter('frame_rate', 15.0)
         self.declare_parameter('jpeg_quality', 80)
         self.declare_parameter('image_width', 1280)
@@ -43,9 +43,10 @@ class CameraNode(Node):
         self.raw_pub = self.create_publisher(Image, raw_topic, 10)
         self.compressed_pub = self.create_publisher(CompressedImage, compressed_topic, 10)
 
-        self.cap = cv2.VideoCapture(video_device)
+        self.cap = cv2.VideoCapture(video_device, cv2.CAP_V4L2)
         if not self.cap.isOpened():
             self.get_logger().error(f"Could not open video device {video_device}!")
+            raise RuntimeError(f"Could not open video device {video_device}")
         else:
             self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, width)
             self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, height)

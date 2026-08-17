@@ -35,9 +35,10 @@ setup(
             'camera_node = bumperbot_yolo.camera_node:main', #testing done
             'cloudinary_firebase_test = bumperbot_yolo.cloudinary_firebase_test:main', #testing done
             'cloudinary_test = bumperbot_yolo.cloudinary_test:main', #testing done
-            'main_with_ros = bumperbot_yolo.main_hardcoded:main',
+            'main_with_ros = bumperbot_yolo.main_hardcoded:main', #testing done
             'testing = bumperbot_yolo.testing:main',
             'testing2 = bumperbot_yolo.testing2:main',
+            'main_ros = bumperbot_yolo.main_ros:main',
         ],
     },
 )

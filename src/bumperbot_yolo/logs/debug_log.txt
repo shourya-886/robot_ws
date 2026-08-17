@@ -721,3 +721,8 @@
 [2026-08-16 22:40:53] -------------------number for n is : 1------------------------
 [2026-08-16 22:40:53] starting movement sequence A
 [2026-08-16 22:41:01] wrote image of raw image to path /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images/pic1.jpeg
+[2026-08-17 17:37:23] initialised cloudinary
+[2026-08-17 17:37:23] initialised firebase
+[2026-08-17 17:37:23] initialised YOLO inference class
+[2026-08-17 17:37:23] model exists in path specified, returning YOLO object
+[2026-08-17 17:37:23] YOLO node starting, ignoring 2 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
