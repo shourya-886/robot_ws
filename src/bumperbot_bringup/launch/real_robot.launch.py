@@ -27,6 +27,12 @@ def generate_launch_description():
         default_value="false"
     )
 
+    yolo_model = LaunchConfiguration("yolo_model")
+    yolo_model_arg = DeclareLaunchArgument(
+        "yolo_model",
+        default_value="/home/shourya/yolo/src/main/models/crack_insc_60.pt"
+    )
+
 
     hardware_interface = IncludeLaunchDescription(
         os.path.join(
@@ -109,15 +115,16 @@ def generate_launch_description():
             output="screen",
             condition=IfCondition(use_yolo)
         )
-    #add yolo node here after modification with IfCondition(use_yolo) to enable it only when use_yolo is true
 
     yolo_node = Node(
             package="bumperbot_yolo",
             executable="main_ros",
             name="yolo_node",
             output="screen",
+            parameters=[{"model": yolo_model}],
             condition=IfCondition(use_yolo)
-    )
+        )
+
     waypoint_follower = IncludeLaunchDescription(
         os.path.join(
             get_package_share_directory("bumperbot_navigation"),
@@ -137,6 +144,7 @@ def generate_launch_description():
         use_slam_arg,
         use_yolo_arg,
         use_waypoint_arg,
+        yolo_model_arg,
         hardware_interface,
         laser_driver,
         controller,
@@ -146,6 +154,6 @@ def generate_launch_description():
         slam,
         navigation,
         camera_node,
-        waypoint_follower,
         yolo_node,
+        waypoint_follower,
     ])
