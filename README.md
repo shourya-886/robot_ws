@@ -285,14 +285,14 @@ This section is kept current as issues are found and fixed during development --
 
 ## Roadmap
 
-- [ ] Resolve physical wheel-separation/toe alignment (chassis-level fix)
-- [ ] Apply pending `bumperbot_interface.cpp` `dt` fix (hardcode to match Arduino's 100ms loop)
-- [ ] Diagnose `slam.launch.py` map_saver_server lifecycle-manager error with corrected parameter dict syntax
-- [ ] Fix dormant `AStarPlanner`/`DijkstraPlanner::poseToCell()` cell-index bug
+- [x] Resolve physical wheel-separation/toe alignment (chassis-level fix)
+- [x] Apply pending `bumperbot_interface.cpp` `dt` fix (hardcode to match Arduino's 100ms loop)
+- [x] Diagnose `slam.launch.py` map_saver_server lifecycle-manager error with corrected parameter dict syntax
+- [x] Fix dormant `AStarPlanner`/`DijkstraPlanner::poseToCell()` cell-index bug
 - [ ] Investigate MPU-6050 noise mitigation, then wire `local_localization.launch.py` (EKF) into bringup
-- [ ] Integrate YOLO/VLM crack-detection pipeline with Nav2 Waypoint Follower via a custom `WaypointTaskExecutor` plugin, so the robot autonomously stops and inspects at each wall-scan point
-- [ ] Firebase live dashboard (SSE streaming) for crack-detection results
-- [ ] Costmap keepout-zone filter masks for protected/fragile monument areas
+- [x] Integrate YOLO/VLM crack-detection pipeline with Nav2 Waypoint Follower via a custom `WaypointTaskExecutor` plugin, so the robot autonomously stops and inspects at each wall-scan point
+- [x] Firebase live dashboard (SSE streaming) for crack-detection results
+- [x] Costmap keepout-zone filter masks for protected/fragile monument areas
 - [ ] Command-triggered Nav2 Docking Server demo (fixed-pose, non-charging dock -- no battery monitoring hardware currently installed)
 
 ---
