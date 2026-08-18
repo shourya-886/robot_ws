@@ -39,3 +39,17 @@
 [2026-08-18 20:28:41] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/1_1787065098.png
 [2026-08-18 20:28:41] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/1_1787065098_inference.jpeg
 [2026-08-18 20:28:41] updated object's number to firebase False and 0
+[2026-08-18 20:34:03] initialised cloudinary
+[2026-08-18 20:34:03] initialised firebase
+[2026-08-18 20:34:03] initialised YOLO inference class
+[2026-08-18 20:34:03] model exists in path specified, returning YOLO object
+[2026-08-18 20:34:03] YOLO node starting, ignoring 4 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-18 20:34:58] initialised cloudinary
+[2026-08-18 20:34:58] initialised firebase
+[2026-08-18 20:34:58] initialised YOLO inference class
+[2026-08-18 20:34:58] model exists in path specified, returning YOLO object
+[2026-08-18 20:34:58] YOLO node starting, ignoring 4 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-18 20:35:13] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1787065502.png
+[2026-08-18 20:35:14] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/0_1787065502_inference.jpeg
+[2026-08-18 20:35:16] updated object's number to firebase True and 1
+[2026-08-18 20:35:21] uploaded image to cloudinary and stored url in firebase with each url being: https://res.cloudinary.com/dtwinn6ii/image/upload/v1787065518/djixd6t9nbpxim24dqhe.png and https://res.cloudinary.com/dtwinn6ii/image/upload/v1787065519/rhrkbnvjudoibip3yea2.jpg
