@@ -23,7 +23,7 @@ bumperbot_controller:
     pose_covariance_diagonal : [0.001, 0.001, 1.0e-3, 1.0e-3, 1.0e-3, 0.01]
     twist_covariance_diagonal: [0.001, 0.001, 1.0e-3, 1.0e-3, 1.0e-3, 0.01]
 
-    wheel_separation : 0.31265 #old one: 0.24
+    wheel_separation : 0.326 #old one: 0.24
     wheel_radius : 0.055 #old one: 0.06015
 
     wheel_separation_multiplier: 1.0
