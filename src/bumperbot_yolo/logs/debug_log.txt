@@ -1,0 +1,41 @@
+[2026-08-17 18:17:58] initialised cloudinary
+[2026-08-17 18:17:59] initialised firebase
+[2026-08-17 18:17:59] initialised YOLO inference class
+[2026-08-17 18:17:59] model exists in path specified, returning YOLO object
+[2026-08-17 18:17:59] YOLO node starting, ignoring 0 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-18 19:59:52] initialised cloudinary
+[2026-08-18 19:59:53] initialised firebase
+[2026-08-18 19:59:53] initialised YOLO inference class
+[2026-08-18 19:59:53] model exists in path specified, returning YOLO object
+[2026-08-18 19:59:53] YOLO node starting, ignoring 0 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-18 20:15:32] initialised cloudinary
+[2026-08-18 20:15:32] initialised firebase
+[2026-08-18 20:15:32] initialised YOLO inference class
+[2026-08-18 20:15:32] model exists in path specified, returning YOLO object
+[2026-08-18 20:15:32] YOLO node starting, ignoring 0 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-18 20:23:46] initialised cloudinary
+[2026-08-18 20:23:46] initialised firebase
+[2026-08-18 20:23:46] initialised YOLO inference class
+[2026-08-18 20:23:46] model exists in path specified, returning YOLO object
+[2026-08-18 20:23:46] YOLO node starting, ignoring 0 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-18 20:24:01] WARN 0_1787064831.png appears to still be writing, will pick it up next poll
+[2026-08-18 20:24:02] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1787064831.png
+[2026-08-18 20:24:07] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/0_1787064831_inference.jpeg
+[2026-08-18 20:24:09] updated object's number to firebase False and 0
+[2026-08-18 20:24:13] uploaded image to cloudinary and stored url in firebase with each url being: https://res.cloudinary.com/dtwinn6ii/image/upload/v1787064851/ykctzgtibevitqzkibnf.png and https://res.cloudinary.com/dtwinn6ii/image/upload/v1787064852/klluphp6umd4pmpazzyz.jpg
+[2026-08-18 20:24:13] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/1_1787064831.png
+[2026-08-18 20:24:14] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/1_1787064831_inference.jpeg
+[2026-08-18 20:24:14] updated object's number to firebase False and 0
+[2026-08-18 20:24:18] uploaded image to cloudinary and stored url in firebase with each url being: https://res.cloudinary.com/dtwinn6ii/image/upload/v1787064855/wqk6uak8usiqbfwlba3m.png and https://res.cloudinary.com/dtwinn6ii/image/upload/v1787064856/he95ycgqt45u2vno4kxn.jpg
+[2026-08-18 20:28:14] initialised cloudinary
+[2026-08-18 20:28:14] initialised firebase
+[2026-08-18 20:28:14] initialised YOLO inference class
+[2026-08-18 20:28:14] model exists in path specified, returning YOLO object
+[2026-08-18 20:28:14] YOLO node starting, ignoring 2 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-18 20:28:27] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1787065098.png
+[2026-08-18 20:28:31] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/0_1787065098_inference.jpeg
+[2026-08-18 20:28:33] updated object's number to firebase False and 0
+[2026-08-18 20:28:37] uploaded image to cloudinary and stored url in firebase with each url being: https://res.cloudinary.com/dtwinn6ii/image/upload/v1787065115/sv0mmvnh3oa5plzf9yei.png and https://res.cloudinary.com/dtwinn6ii/image/upload/v1787065116/xtobj4ltrsmhiffw8k8e.jpg
+[2026-08-18 20:28:41] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/1_1787065098.png
+[2026-08-18 20:28:41] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/1_1787065098_inference.jpeg
+[2026-08-18 20:28:41] updated object's number to firebase False and 0
