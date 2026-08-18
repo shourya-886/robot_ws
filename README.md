@@ -1,15 +1,7 @@
 # BumperBot — Autonomous Wall Crack Inspection Robot
 
 **ROS 2 Humble workspace for a differential-drive robot built for autonomous crack detection on heritage monument walls.**
-Built for WRO 2026 (Future Engineers). Also referred to as *Project Heritage Shield* / *Project Sentinel* in competition documentation.
-
-- **Team:** Shourya, Prisha Prasad, Medhansh Yogesh Jagtap
-- **Mentor:** Santosh Kumar
-- **Schools:** Akshara International School, Phoenix Greens School of Learning
-- **Maintainer contact:** pihushourya100@gmail.com
-
 ---
-
 ## Table of Contents
 
 1. [What this robot does](#what-this-robot-does)
