@@ -82,6 +82,18 @@ def generate_launch_description():
         executable="mpu6050_driver.py"
     )
 
+    # Fuses the IMU (via Madgwick) with wheel odometry to produce the real
+    # odom -> base_footprint transform. This is separate from
+    # local_localization.launch.py, which is a sim/demo pipeline that fuses
+    # a synthetically-noised odom source on the base_footprint_ekf frame.
+    imu_odom_fusion = IncludeLaunchDescription(
+        os.path.join(
+            get_package_share_directory("bumperbot_localization"),
+            "launch",
+            "ekf_real.launch.py"
+        ),
+    )
+
     localization = IncludeLaunchDescription(
         os.path.join(
             get_package_share_directory("bumperbot_localization"),
@@ -150,6 +162,7 @@ def generate_launch_description():
         controller,
         joystick,
         imu_driver_node,
+        imu_odom_fusion,
         localization,
         slam,
         navigation,

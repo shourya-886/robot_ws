@@ -33,6 +33,29 @@ class MPU6050_Driver(Node):
         self.imu_pub_ = self.create_publisher(Imu, "/imu/out", qos_profile=qos_profile_sensor_data)
         self.imu_msg_ = Imu()
         self.imu_msg_.header.frame_id = "base_footprint"
+
+        # This driver only publishes raw accel/gyro, no orientation estimate.
+        # -1 in the first covariance element is the sensor_msgs/Imu convention
+        # for "orientation data not available" -- required so the Madgwick
+        # filter / robot_localization don't try to consume a bogus (0,0,0,0)
+        # quaternion.
+        self.imu_msg_.orientation_covariance[0] = -1.0
+
+        # Approximate MPU6050 noise-density-based variances (rad/s^2, (m/s^2)^2).
+        # These are starting points, not measured values -- tune them by logging
+        # the sensor at rest and computing the variance of each axis, then set
+        # the matching diagonal entry to that value.
+        self.imu_msg_.angular_velocity_covariance = [
+            0.02, 0.0,  0.0,
+            0.0,  0.02, 0.0,
+            0.0,  0.0,  0.02,
+        ]
+        self.imu_msg_.linear_acceleration_covariance = [
+            0.04, 0.0,  0.0,
+            0.0,  0.04, 0.0,
+            0.0,  0.0,  0.04,
+        ]
+
         self.frequency_ = 0.01
         self.timer_ = self.create_timer(self.frequency_, self.timerCallback)
 
