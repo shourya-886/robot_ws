@@ -30,7 +30,7 @@ def generate_launch_description():
     yolo_model = LaunchConfiguration("yolo_model")
     yolo_model_arg = DeclareLaunchArgument(
         "yolo_model",
-        default_value="/home/shourya/robot_ws/src/bumperbot_yolo/models/crack_insc_100.pt"
+        default_value="/home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.pt"
     )
 
 
