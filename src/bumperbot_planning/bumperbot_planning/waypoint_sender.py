@@ -24,22 +24,26 @@ from geometry_msgs.msg import PoseStamped
 from nav2_msgs.action import FollowWaypoints, NavigateToPose
 
 
+#keep waypoint 1's y and waypoint's y the same
+#y1=y2
+#x2=x3
+#x2-x1 = -1.05865934491
 # Hardcoded waypoints, obtained via /clicked_point in RViz2.
 WAYPOINTS = [
     {
-        "x": 0.15037423372268677,
-        "y": -0.19013600051403046,
-        "yaw": -1.5708  # 90 degrees clockwise
+        "x": 0.5537700688838959,
+        "y": 0.034409839659929276,
+        "yaw": -1.57079632679  # Adjust orientation as needed
     },
     {
-        "x": 1.44625723361969,
-        "y": -0.19013600051403046,
-        "yaw": -1.5708  # 90 degrees clockwise
+        "x": 1.5024294137954712,
+        "y": 0.034409839659929276,
+        "yaw": -1.57079632679  # Adjust orientation as needed
     },
     {
-        "x": 1.44625723361969,
-        "y": -0.8031768989562988,
-        "yaw": -3.14  # 90 degrees clockwise
+        "x": 1.5024294137954712,
+        "y": -0.9565174913406372,
+        "yaw": -3.14159265359  # Adjust orientation as needed
     },
 ]
 
