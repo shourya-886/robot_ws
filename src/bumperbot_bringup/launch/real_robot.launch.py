@@ -30,7 +30,7 @@ def generate_launch_description():
     yolo_model = LaunchConfiguration("yolo_model")
     yolo_model_arg = DeclareLaunchArgument(
         "yolo_model",
-        default_value="/home/shourya/yolo/src/main/models/crack_insc_60.pt"
+        default_value="/home/shourya/yolo/src/main/models/crack_insc_100.pt"
     )
 
 

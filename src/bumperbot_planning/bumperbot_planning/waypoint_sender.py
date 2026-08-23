@@ -33,7 +33,7 @@ WAYPOINTS = [
     {
         "x": 0.5537700688838959,
         "y": 0.034409839659929276,
-        "yaw": -1.57079632679  # Adjust orientation as needed
+        "yaw": -1.3962634  # Adjust orientation as needed current is 80deg
     },
     {
         "x": 1.5024294137954712,
@@ -43,7 +43,7 @@ WAYPOINTS = [
     {
         "x": 1.5024294137954712,
         "y": -0.9565174913406372,
-        "yaw": -3.14159265359  # Adjust orientation as needed
+        "yaw": -2.967059728392  # Adjust orientation as needed current is 170deg
     },
 ]
 
