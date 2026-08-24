@@ -15,9 +15,15 @@ again.
 import os
 import sys
 import time
+import gc
 
 import cv2
 from ultralytics import YOLO
+
+try:
+    import torch
+except ImportError:
+    torch = None
 
 import firebase_admin
 from firebase_admin import db, credentials
@@ -103,7 +109,23 @@ class YoloInference:
             log_to_file("could not find path to model as specified", "e")
             sys.exit(1)
 
-        log_to_file("model exists in path specified, returning YOLO object")
+        extension = os.path.splitext(model_path)[1].lower()
+
+        # This node is configured specifically for ONNX inference to avoid
+        # loading a PyTorch .pt model at runtime.
+        if extension != ".onnx":
+            log_to_file(
+                f"expected an .onnx model, but received: {model_path}",
+                "e"
+            )
+            sys.exit(
+                "ERROR: This node requires an ONNX model. "
+                "Pass your .onnx file using -p model:=/path/to/model.onnx"
+            )
+
+        log_to_file(
+            f"loading ONNX model with Ultralytics/ONNX Runtime: {model_path}"
+        )
         return YOLO(model_path, task='detect')
 
 
@@ -185,36 +207,105 @@ class WaypointImageWatcher(Node):
             log_to_file(f"failed to read {filepath} with cv2.imread, skipping", "e")
             return
 
-        # Use the filename (minus extension) as the iteration key for
-        # Firebase/Cloudinary, e.g. "0_1786885674" -- keeps each waypoint's
-        # result distinctly addressable without needing a separate counter.
-        iteration = os.path.splitext(filename)[0]
-
-        results = self.model(frame, verbose=False)
-        detections = results[0].boxes
-
-        any_object_detected = False
-        valid_detections_count = 0
-        for i in range(len(detections)):
-            if detections[i].conf.item() > MIN_DETECTION_CONFIDENCE:
-                any_object_detected = True
-                valid_detections_count += 1
-
-        annotated_frame = results[0].plot()
-        infer_save_path = os.path.join(OUTPUT_DIR, f"{iteration}_inference.jpeg")
-        cv2.imwrite(infer_save_path, annotated_frame)
-        log_to_file(f"wrote inference result to {infer_save_path}")
-
+        # PhotoAtWaypoint names files as:
+        #     <waypoint_index>_<unix_timestamp>.png
+        filename_stem = os.path.splitext(filename)[0]
         try:
-            self.updater.update_firebase_objects_detect(any_object_detected, valid_detections_count, iteration)
-            self.updater.update_firebase_url(filepath, infer_save_path, iteration)
-        except Exception as e:
-            log_to_file(f"failed to update firebase/cloudinary for {filename}: {e}", "e")
+            waypoint_index = int(filename_stem.split("_", 1)[0])
+        except (ValueError, IndexError):
+            log_to_file(
+                f"could not determine waypoint index from filename {filename}; "
+                "skipping Firebase upload",
+                "e"
+            )
+            del frame
             return
 
-        self.get_logger().info(
-            f"Processed {filename}: {valid_detections_count} detection(s) above threshold"
-        )
+        # Only upload the first and third waypoint images.
+        firebase_iteration_map = {0: 1, 2: 2}
+        firebase_iteration = firebase_iteration_map.get(waypoint_index)
+
+        results = None
+        annotated_frame = None
+
+        try:
+            # stream=True avoids retaining a list of prediction results. There
+            # is only one image here, so consume the single result immediately.
+            result = next(iter(self.model(frame, verbose=False, stream=True)))
+            detections = result.boxes
+
+            if detections is None or len(detections) == 0:
+                any_object_detected = False
+                valid_detections_count = 0
+            else:
+                confidences = detections.conf
+                valid_detections_count = int(
+                    (confidences > MIN_DETECTION_CONFIDENCE).sum().item()
+                )
+                any_object_detected = valid_detections_count > 0
+
+            annotated_frame = result.plot()
+            infer_save_path = os.path.join(
+                OUTPUT_DIR, f"{filename_stem}_inference.jpeg"
+            )
+            cv2.imwrite(infer_save_path, annotated_frame)
+            log_to_file(f"wrote inference result to {infer_save_path}")
+
+            if firebase_iteration is None:
+                log_to_file(
+                    f"waypoint {waypoint_index} ({filename}) is not selected "
+                    "for Firebase/Cloudinary upload"
+                )
+                self.get_logger().info(
+                    f"Processed {filename}: {valid_detections_count} detection(s) "
+                    "above threshold; not selected for upload"
+                )
+                return
+
+            self.updater.update_firebase_objects_detect(
+                any_object_detected,
+                valid_detections_count,
+                firebase_iteration
+            )
+            self.updater.update_firebase_url(
+                filepath,
+                infer_save_path,
+                firebase_iteration
+            )
+
+            self.get_logger().info(
+                f"Processed {filename}: {valid_detections_count} detection(s) "
+                f"above threshold; uploaded to input{firebase_iteration} and "
+                f"inference{firebase_iteration}"
+            )
+
+        except Exception as e:
+            log_to_file(
+                f"failed to process/upload {filename}: {e}",
+                "e"
+            )
+
+        finally:
+            # Explicitly drop OpenCV arrays and Ultralytics result objects after
+            # every image. This is useful on memory-constrained Jetson systems.
+            if annotated_frame is not None:
+                del annotated_frame
+            if results is not None:
+                del results
+            if 'result' in locals():
+                del result
+            if 'detections' in locals():
+                del detections
+            del frame
+
+            gc.collect()
+
+            # Do not call empty_cache() during every inference unless CUDA is
+            # available. It releases unused cached memory without unloading the
+            # model, while avoiding an error on non-PyTorch backends.
+            if torch is not None and torch.cuda.is_available():
+                torch.cuda.empty_cache()
+
 
 
 def main(args=None):
@@ -226,7 +317,7 @@ def main(args=None):
     node.destroy_node()
 
     if not model_path:
-        print("ERROR: 'model' parameter is required, e.g. --ros-args -p model:=/path/to/model.pt")
+        print("ERROR: 'model' parameter is required, e.g. --ros-args -p model:=/path/to/model.onnx")
         sys.exit(1)
 
     watcher = WaypointImageWatcher(model_path)
