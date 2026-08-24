@@ -27,21 +27,20 @@ from nav2_msgs.action import FollowWaypoints, NavigateToPose
 #keep waypoint 1's y and waypoint's y the same
 #y1=y2
 #x2=x3
-#x2-x1 = -1.05865934491
 # Hardcoded waypoints, obtained via /clicked_point in RViz2.
 WAYPOINTS = [
     {
-        "x": 0.5748692154884338,
-        "y": -0.00294715934433043,
+        "x": 0.6204400062561035,
+        "y": -0.02554897964000702,
         "yaw": -1.3962634  # Adjust orientation as needed current is 80deg
     },
     {
-        "x": 1.6479508876800537,
-        "y": -0.00304715934433043,#old one 0.00016324748867191374
+        "x": 1.7925688028335571,
+        "y": -0.02554897964000702,#old one 0.00016324748867191374
         "yaw": -1.57079632679  # Adjust orientation as needed
     },
     {
-        "x": 1.6294611692428589,
+        "x": 1.7925688028335571,
         "y": -0.7781338095664978,
         "yaw": -2.967059728392  # Adjust orientation as needed current is 170deg
     },
