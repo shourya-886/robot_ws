@@ -37,3 +37,19 @@
 [2026-08-24 23:18:55] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/2_1787593696_inference.jpeg
 [2026-08-24 23:18:56] updated object's number to firebase True and 5
 [2026-08-24 23:19:21] uploaded image to cloudinary and stored url in firebase with each url being: https://res.cloudinary.com/dtwinn6ii/image/upload/v1787593757/eo3a8n7fbcsbyypw24rh.png and https://res.cloudinary.com/dtwinn6ii/image/upload/v1787593759/ydovhxv7s69amn8f4wah.jpg
+[2026-08-24 23:24:06] initialised cloudinary
+[2026-08-24 23:24:06] initialised firebase
+[2026-08-24 23:24:06] initialised YOLO inference class
+[2026-08-24 23:24:06] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-24 23:24:06] YOLO node starting, ignoring 0 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-24 23:24:15] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1787594046.png
+[2026-08-24 23:24:20] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/0_1787594046_inference.jpeg
+[2026-08-24 23:24:21] updated object's number to firebase False and 0
+[2026-08-24 23:24:26] uploaded image to cloudinary and stored url in firebase with each url being: https://res.cloudinary.com/dtwinn6ii/image/upload/v1787594064/aing5ushxpauzmavj4it.png and https://res.cloudinary.com/dtwinn6ii/image/upload/v1787594065/vzd840zbevdiez1pdp3o.jpg
+[2026-08-24 23:24:27] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/1_1787594046.png
+[2026-08-24 23:24:27] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/1_1787594046_inference.jpeg
+[2026-08-24 23:24:27] waypoint 1 (1_1787594046.png) is not selected for Firebase/Cloudinary upload
+[2026-08-24 23:24:37] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/2_1787594046.png
+[2026-08-24 23:24:37] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/2_1787594046_inference.jpeg
+[2026-08-24 23:24:38] updated object's number to firebase True and 5
+[2026-08-24 23:24:42] uploaded image to cloudinary and stored url in firebase with each url being: https://res.cloudinary.com/dtwinn6ii/image/upload/v1787594080/a8kujpd5z6uyjixoudkr.png and https://res.cloudinary.com/dtwinn6ii/image/upload/v1787594081/jqtxy9z8w2ik6emxearz.jpg
