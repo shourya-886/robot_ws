@@ -4,6 +4,6 @@ rplidar_node:
     serial_port: /dev/rplidar
     serial_baudrate: 115200
     frame_id: laser_link
-    inverted: false
+    inverted: true
     angle_compensate: true
     scan_mode: Sensitivity

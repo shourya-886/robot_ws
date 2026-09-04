@@ -190,7 +190,7 @@
   </link>
 
   <joint name="laser_joint" type="fixed">
-       <origin xyz="0 0 0.109" rpy="0 0 0" /> <!--z= 0.042(from physical unit) + 0.088(from fusion final assembly without wheels) + 0.001(accounting for plate thickness)-->
+        <origin xyz="0 0 0.0051" rpy="3.14159265 0 0" /> <!--z= 0.042(from physical unit) + 0.088(from fusion final assembly without wheels) + 0.001(accounting for plate thickness)-->
         <parent link="base_link" />
         <child link="laser_link" />
   </joint>
