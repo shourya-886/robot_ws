@@ -47,11 +47,14 @@ class PubCenterFrame(Node):
         cv2.circle(cv_image, self.center, self.radius, self.color, self.thickness)
 
         self.publish_center_frame()
+
+        #publish the image with the circle drawn on it
         self.image_pub.publish(self.bridge.cv2_to_imgmsg(cv_image, encoding='bgr8'))
 
         self.get_logger().info("Published center frame and image")
 
-    def publish_center_frame(self):
+    def publish_center_frame(self): 
+        #publishes the center frame coordinates as a string message
         center_frame_msg = String()
         center_frame_msg.data = f"{self.center[0]}, {self.center[1]}"
         self.center_pub.publish(center_frame_msg)
