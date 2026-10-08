@@ -3,7 +3,7 @@
 <package format="3">
   <name>usb_cam_launcher</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
+  <description>Launch usb_cam</description>
   <maintainer email="pihushourya100@gmail.com">shourya</maintainer>
   <license>TODO: License declaration</license>
 
