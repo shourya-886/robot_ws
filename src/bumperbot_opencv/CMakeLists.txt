@@ -28,11 +28,14 @@ ament_target_dependencies(pub_center_frame_cpp rclcpp cv_bridge sensor_msgs std_
 add_executable(color_to_grey_cpp src/color_to_grey.cpp)
 ament_target_dependencies(color_to_grey_cpp rclcpp cv_bridge sensor_msgs OpenCV)
 
+add_executable(image_processor_cpp src/image_processing.cpp)
+ament_target_dependencies(image_processor_cpp rclcpp cv_bridge sensor_msgs std_msgs OpenCV)
 
 # Install C++ executables
 install(TARGETS
   pub_center_frame_cpp
   color_to_grey_cpp
+  image_processor_cpp
   DESTINATION lib/${PROJECT_NAME}
 )
 
@@ -41,6 +44,7 @@ ament_python_install_package(${PROJECT_NAME})
 install(PROGRAMS
   bumperbot_opencv/pub_center_frame.py
   bumperbot_opencv/color_to_grey.py
+  bumperbot_opencv/image_processing.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
