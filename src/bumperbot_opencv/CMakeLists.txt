@@ -25,8 +25,8 @@ include_directories(
 add_executable(pub_center_frame_cpp src/pub_center_frame.cpp)
 ament_target_dependencies(pub_center_frame_cpp rclcpp cv_bridge sensor_msgs std_msgs OpenCV)
 
-add_executable(color_to_grey src/color_to_grey.cpp)
-ament_target_dependencies(color_to_grey rclcpp cv_bridge sensor_msgs OpenCV)
+add_executable(color_to_grey_cpp src/color_to_grey.cpp)
+ament_target_dependencies(color_to_grey_cpp rclcpp cv_bridge sensor_msgs OpenCV)
 
 
 # Install C++ executables
