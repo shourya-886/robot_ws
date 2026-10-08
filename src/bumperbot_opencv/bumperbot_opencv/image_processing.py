@@ -64,7 +64,7 @@ class ImageProcessor(Node):
         apertureSize = 3
         k = 0.04
         dst = cv2.cornerHarris(gray_image, blockSize, apertureSize, k)
-        dst_norm = cv2.normalize(dst, None, 0, 255, cv2.NORM_MINMAX, cv.CV_32FC1 if hasattr(cv, 'CV_32FC1') else cv2.CV_32FC1)
+        dst_norm = cv2.normalize(dst, None, 0, 255, cv2.NORM_MINMAX, cv2.CV_32FC1 if hasattr(cv2, 'CV_32FC1') else cv2.CV_32FC1)
         dst_norm_scaled = cv2.convertScaleAbs(dst_norm)
         
         corner_image = processed_image.copy()
