@@ -11,7 +11,7 @@ class PubCenterFrame(Node):
     def __init__(self):
         super().__init__('pub_center_frame')
 
-        self.declare_parameter("cicle_radius", 5)
+        self.declare_parameter("cicle_radius", 10)
         self.declare_parameter("circle_color", (0, 0, 255))
         self.declare_parameter("circle_thickness", -1)
 
@@ -42,18 +42,13 @@ class PubCenterFrame(Node):
         height = cv_image.shape[0]
         width = cv_image.shape[1]
 
-        # Update class attribute self.center instead of a local variable
-        self.center = (int(height / 2), int(width / 2))
-        self.get_logger().info(f"Center: {self.center}")
+        self.center = (int(width / 2), int(height / 2))
 
         cv2.circle(cv_image, self.center, self.radius, self.color, self.thickness)
-        
-        # Publish the coordinate string
+
         self.publish_center_frame()
-        
-        # Publish the processed image containing the drawn circle
         self.image_pub.publish(self.bridge.cv2_to_imgmsg(cv_image, encoding='bgr8'))
-        
+
         self.get_logger().info("Published center frame and image")
 
     def publish_center_frame(self):
