@@ -53,3 +53,508 @@
 [2026-08-24 23:24:37] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/2_1787594046_inference.jpeg
 [2026-08-24 23:24:38] updated object's number to firebase True and 5
 [2026-08-24 23:24:42] uploaded image to cloudinary and stored url in firebase with each url being: https://res.cloudinary.com/dtwinn6ii/image/upload/v1787594080/a8kujpd5z6uyjixoudkr.png and https://res.cloudinary.com/dtwinn6ii/image/upload/v1787594081/jqtxy9z8w2ik6emxearz.jpg
+[2026-08-25 22:46:47] initialised cloudinary
+[2026-08-25 22:46:47] initialised firebase
+[2026-08-25 22:46:47] initialised YOLO inference class
+[2026-08-25 22:46:47] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-25 22:46:47] YOLO node starting, ignoring 6 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-25 22:46:59] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1787678210.png
+[2026-08-25 22:47:03] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/0_1787678210_inference.jpeg
+[2026-08-25 22:47:05] updated object's number to firebase False and 0
+[2026-08-25 22:47:24] uploaded image to cloudinary and stored url in firebase with each url being: https://res.cloudinary.com/dtwinn6ii/image/upload/v1787678239/rpngkdzpx28mllyhkted.png and https://res.cloudinary.com/dtwinn6ii/image/upload/v1787678242/hg5nyk4sbuz37bdask44.jpg
+[2026-08-25 22:47:34] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/1_1787678210.png
+[2026-08-25 22:47:34] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/1_1787678210_inference.jpeg
+[2026-08-25 22:47:34] waypoint 1 (1_1787678210.png) is not selected for Firebase/Cloudinary upload
+[2026-08-25 22:47:43] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/2_1787678210.png
+[2026-08-25 22:47:43] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/2_1787678210_inference.jpeg
+[2026-08-25 22:47:44] updated object's number to firebase False and 0
+[2026-08-25 22:47:57] uploaded image to cloudinary and stored url in firebase with each url being: https://res.cloudinary.com/dtwinn6ii/image/upload/v1787678267/rsf4lwwd0q6hgdvorppv.png and https://res.cloudinary.com/dtwinn6ii/image/upload/v1787678276/uqdl8aa8bjrmqhmpdxhj.jpg
+[2026-08-25 22:50:14] initialised cloudinary
+[2026-08-25 22:50:14] initialised firebase
+[2026-08-25 22:50:14] initialised YOLO inference class
+[2026-08-25 22:50:14] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-25 22:50:14] YOLO node starting, ignoring 9 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-25 22:50:28] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1787678417.png
+[2026-08-25 22:50:31] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/0_1787678417_inference.jpeg
+[2026-08-25 22:50:33] updated object's number to firebase False and 0
+[2026-08-25 22:50:55] uploaded image to cloudinary and stored url in firebase with each url being: https://res.cloudinary.com/dtwinn6ii/image/upload/v1787678448/l3xqa8gadrfc4o2dlyq1.png and https://res.cloudinary.com/dtwinn6ii/image/upload/v1787678453/pft7nnixxlaodxkif9l4.jpg
+[2026-08-25 22:50:55] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/1_1787678417.png
+[2026-08-25 22:50:55] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/1_1787678417_inference.jpeg
+[2026-08-25 22:50:55] waypoint 1 (1_1787678417.png) is not selected for Firebase/Cloudinary upload
+[2026-08-25 22:50:56] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/2_1787678417.png
+[2026-08-25 22:50:56] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/2_1787678417_inference.jpeg
+[2026-08-25 22:50:57] updated object's number to firebase True and 5
+[2026-08-25 22:51:29] uploaded image to cloudinary and stored url in firebase with each url being: https://res.cloudinary.com/dtwinn6ii/image/upload/v1787678481/gngswj5pmqkwqgp4sfbl.png and https://res.cloudinary.com/dtwinn6ii/image/upload/v1787678488/zsmcxrv6gk51scxli4ml.jpg
+[2026-08-25 22:55:57] initialised cloudinary
+[2026-08-25 22:55:57] initialised firebase
+[2026-08-25 22:55:57] initialised YOLO inference class
+[2026-08-25 22:55:57] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-25 22:55:57] YOLO node starting, ignoring 12 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-25 22:56:09] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1787678759.png
+[2026-08-25 22:56:19] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/0_1787678759_inference.jpeg
+[2026-08-25 22:56:22] updated object's number to firebase False and 0
+[2026-08-25 22:56:32] uploaded image to cloudinary and stored url in firebase with each url being: https://res.cloudinary.com/dtwinn6ii/image/upload/v1787678788/f8sblwgd8l95bdqsrla7.png and https://res.cloudinary.com/dtwinn6ii/image/upload/v1787678790/rgt2pa5b5lyhv0pmhzkk.jpg
+[2026-08-25 22:56:32] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/1_1787678759.png
+[2026-08-25 22:56:33] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/1_1787678759_inference.jpeg
+[2026-08-25 22:56:33] waypoint 1 (1_1787678759.png) is not selected for Firebase/Cloudinary upload
+[2026-08-25 22:56:33] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/2_1787678759.png
+[2026-08-25 22:56:33] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/2_1787678759_inference.jpeg
+[2026-08-25 22:56:34] updated object's number to firebase True and 4
+[2026-08-25 22:56:51] uploaded image to cloudinary and stored url in firebase with each url being: https://res.cloudinary.com/dtwinn6ii/image/upload/v1787678808/mzp2nwbaklu5chenayqy.png and https://res.cloudinary.com/dtwinn6ii/image/upload/v1787678810/kqhyg8cytq2pbzuoitw6.jpg
+[2026-08-26 10:58:26] initialised cloudinary
+[2026-08-26 10:58:27] initialised firebase
+[2026-08-26 10:58:27] initialised YOLO inference class
+[2026-08-26 10:58:27] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-26 10:58:27] YOLO node starting, ignoring 16 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-26 11:30:45] initialised cloudinary
+[2026-08-26 11:30:45] initialised firebase
+[2026-08-26 11:30:45] initialised YOLO inference class
+[2026-08-26 11:30:45] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-26 11:30:45] YOLO node starting, ignoring 1 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-26 11:30:54] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/1_1787724033.png
+[2026-08-26 11:34:10] initialised cloudinary
+[2026-08-26 11:34:10] initialised firebase
+[2026-08-26 11:34:10] initialised YOLO inference class
+[2026-08-26 11:34:10] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-26 11:34:10] YOLO node starting, ignoring 2 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-26 11:34:20] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1787724250.png
+[2026-08-26 11:34:24] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/0_1787724250_inference.jpeg
+[2026-08-26 11:35:29] initialised cloudinary
+[2026-08-26 11:35:29] initialised firebase
+[2026-08-26 11:35:29] initialised YOLO inference class
+[2026-08-26 11:35:29] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-26 11:35:29] YOLO node starting, ignoring 4 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-26 11:35:41] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1787724332.png
+[2026-08-26 11:35:43] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/0_1787724332_inference.jpeg
+[2026-08-26 11:38:15] initialised cloudinary
+[2026-08-26 11:38:15] initialised firebase
+[2026-08-26 11:38:15] initialised YOLO inference class
+[2026-08-26 11:38:15] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-26 11:38:15] YOLO node starting, ignoring 6 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-26 11:38:25] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1787724498.png
+[2026-08-26 11:38:28] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/0_1787724498_inference.jpeg
+[2026-08-26 11:40:39] initialised cloudinary
+[2026-08-26 11:40:39] initialised firebase
+[2026-08-26 11:40:39] initialised YOLO inference class
+[2026-08-26 11:40:39] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-26 11:40:39] YOLO node starting, ignoring 8 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-26 11:40:46] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1787724642.png
+[2026-08-26 11:40:49] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/0_1787724642_inference.jpeg
+[2026-08-26 11:40:54] updated object's number to firebase False and 0
+[2026-08-26 11:43:53] initialised cloudinary
+[2026-08-26 11:43:53] initialised firebase
+[2026-08-26 11:43:53] initialised YOLO inference class
+[2026-08-26 11:43:53] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-26 11:43:53] YOLO node starting, ignoring 10 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-26 11:44:06] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1787724837.png
+[2026-08-26 11:44:09] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/0_1787724837_inference.jpeg
+[2026-08-26 11:44:46] updated object's number to firebase True and 1
+[2026-08-26 12:04:09] initialised cloudinary
+[2026-08-26 12:04:09] initialised firebase
+[2026-08-26 12:04:09] initialised YOLO inference class
+[2026-08-26 12:04:09] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-26 12:04:09] YOLO node starting, ignoring 13 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-26 12:04:46] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/2_1787726035.png
+[2026-08-26 12:04:48] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/2_1787726035_inference.jpeg
+[2026-08-26 12:05:23] updated object's number to firebase True and 3
+[2026-08-26 12:09:28] initialised cloudinary
+[2026-08-26 12:09:29] initialised firebase
+[2026-08-26 12:09:29] initialised YOLO inference class
+[2026-08-26 12:09:29] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-26 12:09:29] YOLO node starting, ignoring 14 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-26 12:11:16] initialised cloudinary
+[2026-08-26 12:11:16] initialised firebase
+[2026-08-26 12:11:16] initialised YOLO inference class
+[2026-08-26 12:11:16] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-26 12:11:16] YOLO node starting, ignoring 14 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-26 12:12:48] initialised cloudinary
+[2026-08-26 12:12:48] initialised firebase
+[2026-08-26 12:12:48] initialised YOLO inference class
+[2026-08-26 12:12:48] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-26 12:12:48] YOLO node starting, ignoring 15 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-26 12:13:08] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/1_1787726554.png
+[2026-08-26 12:17:05] initialised cloudinary
+[2026-08-26 12:17:05] initialised firebase
+[2026-08-26 12:17:05] initialised YOLO inference class
+[2026-08-26 12:17:05] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-26 12:17:05] YOLO node starting, ignoring 16 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-26 12:18:26] initialised cloudinary
+[2026-08-26 12:18:26] initialised firebase
+[2026-08-26 12:18:26] initialised YOLO inference class
+[2026-08-26 12:18:26] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-26 12:18:26] YOLO node starting, ignoring 16 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-26 12:18:40] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1787726909.png
+[2026-08-26 12:18:50] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/0_1787726909_inference.jpeg
+[2026-08-26 12:18:56] updated object's number to firebase True and 1
+[2026-08-26 12:20:06] initialised cloudinary
+[2026-08-26 12:20:06] initialised firebase
+[2026-08-26 12:20:06] initialised YOLO inference class
+[2026-08-26 12:20:06] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-26 12:20:06] YOLO node starting, ignoring 18 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-26 12:20:17] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1787727009.png
+[2026-08-26 12:20:20] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/0_1787727009_inference.jpeg
+[2026-08-26 12:20:27] updated object's number to firebase False and 0
+[2026-08-26 12:26:08] initialised cloudinary
+[2026-08-26 12:26:08] initialised firebase
+[2026-08-26 12:26:08] initialised YOLO inference class
+[2026-08-26 12:26:08] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-26 12:26:08] YOLO node starting, ignoring 19 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-26 12:26:11] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1787727364.png
+[2026-08-26 12:26:12] ERROR ----------failed to process/upload 0_1787727364.png: Error when binding input: There's no data transfer registered for copying tensors from Device:[DeviceType:1 MemoryType:0 VendorId:4318 DeviceId:0 Alignment:0] to Device:[DeviceType:0 MemoryType:0 VendorId:0 DeviceId:0 Alignment:0]----------
+[2026-08-26 12:26:23] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/1_1787727364.png
+[2026-08-26 12:26:23] ERROR ----------failed to process/upload 1_1787727364.png: Error when binding input: There's no data transfer registered for copying tensors from Device:[DeviceType:1 MemoryType:0 VendorId:4318 DeviceId:0 Alignment:0] to Device:[DeviceType:0 MemoryType:0 VendorId:0 DeviceId:0 Alignment:0]----------
+[2026-08-26 12:26:34] WARN 2_1787727364.png appears to still be writing, will pick it up next poll
+[2026-08-26 12:26:35] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/2_1787727364.png
+[2026-08-26 12:26:35] ERROR ----------failed to process/upload 2_1787727364.png: Error when binding input: There's no data transfer registered for copying tensors from Device:[DeviceType:1 MemoryType:0 VendorId:4318 DeviceId:0 Alignment:0] to Device:[DeviceType:0 MemoryType:0 VendorId:0 DeviceId:0 Alignment:0]----------
+[2026-08-26 12:34:51] initialised cloudinary
+[2026-08-26 12:34:51] initialised firebase
+[2026-08-26 12:34:51] initialised YOLO inference class
+[2026-08-26 12:34:51] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-26 12:34:51] YOLO node starting, ignoring 24 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-26 12:35:18] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/2_1787727863.png
+[2026-08-26 12:35:28] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/2_1787727863_inference.jpeg
+[2026-08-26 12:37:48] initialised cloudinary
+[2026-08-26 12:37:48] initialised firebase
+[2026-08-26 12:37:48] initialised YOLO inference class
+[2026-08-26 12:37:48] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-26 12:37:48] YOLO node starting, ignoring 1 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-26 12:37:58] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/1_1787728056.png
+[2026-08-26 12:38:00] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/1_1787728056_inference.jpeg
+[2026-08-26 12:38:00] waypoint 1 (1_1787728056.png) is not selected for Firebase/Cloudinary upload
+[2026-08-26 12:52:20] initialised cloudinary
+[2026-08-26 12:52:20] initialised firebase
+[2026-08-26 12:52:20] initialised YOLO inference class
+[2026-08-26 12:52:20] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-26 12:52:20] YOLO node starting, ignoring 2 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-26 12:52:23] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1787728932.png
+[2026-08-26 12:52:33] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/0_1787728932_inference.jpeg
+[2026-08-26 12:54:47] initialised cloudinary
+[2026-08-26 12:54:48] initialised firebase
+[2026-08-26 12:54:48] initialised YOLO inference class
+[2026-08-26 12:54:48] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-26 12:54:48] YOLO node starting, ignoring 3 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-26 12:55:02] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1787729091.png
+[2026-08-26 12:55:05] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/0_1787729091_inference.jpeg
+[2026-08-26 12:55:17] updated object's number to firebase False and 0
+[2026-08-26 12:55:24] uploaded image to cloudinary and stored url in firebase with each url being: https://res.cloudinary.com/dtwinn6ii/image/upload/v1787729120/ho1fpzgikyfntwmtpnd9.png and https://res.cloudinary.com/dtwinn6ii/image/upload/v1787729122/dyvsbfpbh8zyl2nhbqed.jpg
+[2026-08-26 12:55:24] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/1_1787729091.png
+[2026-08-26 12:55:24] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/1_1787729091_inference.jpeg
+[2026-08-26 12:55:24] waypoint 1 (1_1787729091.png) is not selected for Firebase/Cloudinary upload
+[2026-08-26 12:55:46] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/2_1787729091.png
+[2026-08-26 12:55:46] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/2_1787729091_inference.jpeg
+[2026-08-26 12:55:47] updated object's number to firebase True and 2
+[2026-08-26 14:25:31] initialised cloudinary
+[2026-08-26 14:25:31] initialised firebase
+[2026-08-26 14:25:31] initialised YOLO inference class
+[2026-08-26 14:25:31] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-26 14:25:31] YOLO node starting, ignoring 7 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-26 14:25:34] WARN 1_1787734508.png appears to still be writing, will pick it up next poll
+[2026-08-26 14:25:35] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/1_1787734508.png
+[2026-08-26 14:25:45] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/1_1787734508_inference.jpeg
+[2026-08-26 14:25:45] waypoint 1 (1_1787734508.png) is not selected for Firebase/Cloudinary upload
+[2026-08-26 14:25:45] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/2_1787734508.png
+[2026-08-26 14:25:46] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/2_1787734508_inference.jpeg
+[2026-08-26 14:25:48] updated object's number to firebase True and 4
+[2026-08-26 14:25:56] uploaded image to cloudinary and stored url in firebase with each url being: https://res.cloudinary.com/dtwinn6ii/image/upload/v1787734552/b4wmhsdwucjrdpz9gc7q.png and https://res.cloudinary.com/dtwinn6ii/image/upload/v1787734554/sfgokn3t5xegepyazwsd.jpg
+[2026-08-26 14:41:08] initialised cloudinary
+[2026-08-26 14:41:08] initialised firebase
+[2026-08-26 14:41:08] initialised YOLO inference class
+[2026-08-26 14:41:08] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-26 14:41:08] YOLO node starting, ignoring 11 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-26 14:41:37] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/2_1787735442.png
+[2026-08-26 14:41:47] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/2_1787735442_inference.jpeg
+[2026-08-26 15:44:36] initialised cloudinary
+[2026-08-26 15:44:36] initialised firebase
+[2026-08-26 15:44:36] initialised YOLO inference class
+[2026-08-26 15:44:36] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-26 15:44:36] YOLO node starting, ignoring 12 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-26 15:44:37] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1787739266.png
+[2026-08-26 15:44:47] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/0_1787739266_inference.jpeg
+[2026-08-26 15:45:18] updated object's number to firebase False and 0
+[2026-08-26 16:36:56] initialised cloudinary
+[2026-08-26 16:36:56] initialised firebase
+[2026-08-26 16:36:56] initialised YOLO inference class
+[2026-08-26 16:36:56] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-26 16:36:56] YOLO node starting, ignoring 15 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-26 16:37:04] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1787742416.png
+[2026-08-26 16:37:14] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/0_1787742416_inference.jpeg
+[2026-08-26 16:37:27] updated object's number to firebase False and 0
+[2026-08-26 16:38:09] uploaded image to cloudinary and stored url in firebase with each url being: https://res.cloudinary.com/dtwinn6ii/image/upload/v1787742462/sitezny5pyrgxytitdvr.png and https://res.cloudinary.com/dtwinn6ii/image/upload/v1787742478/f0c8ku5wj8nxwlx1hukm.jpg
+[2026-08-27 07:55:59] initialised cloudinary
+[2026-08-27 07:55:59] initialised firebase
+[2026-08-27 07:55:59] initialised YOLO inference class
+[2026-08-27 07:55:59] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-27 07:55:59] YOLO node starting, ignoring 16 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-27 07:56:48] initialised cloudinary
+[2026-08-27 07:56:48] initialised firebase
+[2026-08-27 07:56:48] initialised YOLO inference class
+[2026-08-27 07:56:48] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-27 07:56:48] YOLO node starting, ignoring 16 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-27 08:02:03] initialised cloudinary
+[2026-08-27 08:02:04] initialised firebase
+[2026-08-27 08:02:04] initialised YOLO inference class
+[2026-08-27 08:02:04] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-27 08:02:04] YOLO node starting, ignoring 16 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-27 08:02:51] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/1_1787797927.png
+[2026-08-27 08:03:00] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/1_1787797927_inference.jpeg
+[2026-08-27 08:03:00] waypoint 1 (1_1787797927.png) is not selected for Firebase/Cloudinary upload
+[2026-08-27 08:16:04] initialised cloudinary
+[2026-08-27 08:16:04] initialised firebase
+[2026-08-27 08:16:04] initialised YOLO inference class
+[2026-08-27 08:16:04] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-27 08:16:04] YOLO node starting, ignoring 17 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-27 08:16:14] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1787798766.png
+[2026-08-27 08:16:20] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/0_1787798766_inference.jpeg
+[2026-08-27 08:16:23] updated object's number to firebase False and 0
+[2026-08-27 08:16:36] uploaded image to cloudinary and stored url in firebase with each url being: https://res.cloudinary.com/dtwinn6ii/image/upload/v1787798792/x45qhqicc8g8rwzcimik.png and https://res.cloudinary.com/dtwinn6ii/image/upload/v1787798795/ujxsoa6sxcxgswxuyqds.jpg
+[2026-08-27 08:16:54] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/2_1787798766.png
+[2026-08-27 08:16:54] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/2_1787798766_inference.jpeg
+[2026-08-27 08:16:55] updated object's number to firebase True and 3
+[2026-08-27 08:22:02] initialised cloudinary
+[2026-08-27 08:22:02] initialised firebase
+[2026-08-27 08:22:02] initialised YOLO inference class
+[2026-08-27 08:22:02] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-27 08:22:02] YOLO node starting, ignoring 19 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-27 08:22:11] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1787799122.png
+[2026-08-27 08:22:14] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/0_1787799122_inference.jpeg
+[2026-08-27 08:22:18] updated object's number to firebase False and 0
+[2026-08-27 08:22:34] uploaded image to cloudinary and stored url in firebase with each url being: https://res.cloudinary.com/dtwinn6ii/image/upload/v1787799144/fgpbt3napuxyahvr3z85.png and https://res.cloudinary.com/dtwinn6ii/image/upload/v1787799146/gtsjmlpowvz5m2w7sbws.jpg
+[2026-08-27 08:22:35] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/1_1787799122.png
+[2026-08-27 08:22:35] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/1_1787799122_inference.jpeg
+[2026-08-27 08:22:35] waypoint 1 (1_1787799122.png) is not selected for Firebase/Cloudinary upload
+[2026-08-27 08:25:18] initialised cloudinary
+[2026-08-27 08:25:18] initialised firebase
+[2026-08-27 08:25:18] initialised YOLO inference class
+[2026-08-27 08:25:18] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-27 08:25:18] YOLO node starting, ignoring 21 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-27 08:25:28] WARN 0_1787799321.png appears to still be writing, will pick it up next poll
+[2026-08-27 08:25:29] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1787799321.png
+[2026-08-27 08:25:32] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/0_1787799321_inference.jpeg
+[2026-08-27 08:25:35] updated object's number to firebase False and 0
+[2026-08-27 08:25:55] uploaded image to cloudinary and stored url in firebase with each url being: https://res.cloudinary.com/dtwinn6ii/image/upload/v1787799350/ok1wrwpn3m28y2yurfww.png and https://res.cloudinary.com/dtwinn6ii/image/upload/v1787799354/zmttdo8ssd8sbadu8ka2.jpg
+[2026-08-27 08:25:56] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/1_1787799321.png
+[2026-08-27 08:25:56] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/1_1787799321_inference.jpeg
+[2026-08-27 08:25:56] waypoint 1 (1_1787799321.png) is not selected for Firebase/Cloudinary upload
+[2026-08-27 08:25:56] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/2_1787799321.png
+[2026-08-27 08:25:56] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/2_1787799321_inference.jpeg
+[2026-08-27 08:25:58] updated object's number to firebase True and 3
+[2026-08-27 08:30:32] initialised cloudinary
+[2026-08-27 08:30:32] initialised firebase
+[2026-08-27 08:30:32] initialised YOLO inference class
+[2026-08-27 08:30:32] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-27 08:30:32] YOLO node starting, ignoring 24 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-27 08:30:44] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1787799635.png
+[2026-08-27 08:30:47] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/0_1787799635_inference.jpeg
+[2026-08-27 08:31:25] updated object's number to firebase False and 0
+[2026-08-27 08:32:19] initialised cloudinary
+[2026-08-27 08:32:20] initialised firebase
+[2026-08-27 08:32:20] initialised YOLO inference class
+[2026-08-27 08:32:20] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-27 08:32:20] YOLO node starting, ignoring 26 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-27 08:32:48] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1787799741.png
+[2026-08-27 08:32:50] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/0_1787799741_inference.jpeg
+[2026-08-27 08:38:20] initialised cloudinary
+[2026-08-27 08:38:20] initialised firebase
+[2026-08-27 08:38:20] initialised YOLO inference class
+[2026-08-27 08:38:20] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-27 08:38:20] YOLO node starting, ignoring 28 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-27 08:38:30] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/1_1787800089.png
+[2026-08-27 08:38:44] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/1_1787800089_inference.jpeg
+[2026-08-27 08:38:44] waypoint 1 (1_1787800089.png) is not selected for Firebase/Cloudinary upload
+[2026-08-27 08:38:44] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/2_1787800089.png
+[2026-08-27 08:38:44] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/2_1787800089_inference.jpeg
+[2026-08-27 08:38:47] updated object's number to firebase True and 3
+[2026-08-27 08:50:29] initialised cloudinary
+[2026-08-27 08:50:29] initialised firebase
+[2026-08-27 08:50:29] initialised YOLO inference class
+[2026-08-27 08:50:29] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-27 08:50:29] YOLO node starting, ignoring 30 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-27 08:51:26] initialised cloudinary
+[2026-08-27 08:51:26] initialised firebase
+[2026-08-27 08:51:26] initialised YOLO inference class
+[2026-08-27 08:51:26] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-27 08:51:26] YOLO node starting, ignoring 30 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-27 08:51:30] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1787800880.png
+[2026-08-27 08:51:33] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/0_1787800880_inference.jpeg
+[2026-08-27 08:51:43] updated object's number to firebase False and 0
+[2026-08-27 08:53:43] initialised cloudinary
+[2026-08-27 08:53:43] initialised firebase
+[2026-08-27 08:53:43] initialised YOLO inference class
+[2026-08-27 08:53:43] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-27 08:53:43] YOLO node starting, ignoring 31 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-27 08:53:56] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1787801026.png
+[2026-08-27 08:53:59] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/0_1787801026_inference.jpeg
+[2026-08-27 08:54:07] updated object's number to firebase False and 0
+[2026-08-27 08:58:54] initialised cloudinary
+[2026-08-27 08:58:54] initialised firebase
+[2026-08-27 08:58:54] initialised YOLO inference class
+[2026-08-27 08:58:54] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-27 08:58:54] YOLO node starting, ignoring 33 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-27 08:59:04] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1787801337.png
+[2026-08-27 08:59:07] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/0_1787801337_inference.jpeg
+[2026-08-27 08:59:11] updated object's number to firebase False and 0
+[2026-08-27 08:59:56] uploaded image to cloudinary and stored url in firebase with each url being: https://res.cloudinary.com/dtwinn6ii/image/upload/v1787801386/yitbfxb2ryehzhvubdck.png and https://res.cloudinary.com/dtwinn6ii/image/upload/v1787801395/dslcbsdkkd9fnbejasj3.jpg
+[2026-08-27 08:59:56] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/1_1787801337.png
+[2026-08-27 08:59:57] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/1_1787801337_inference.jpeg
+[2026-08-27 08:59:57] waypoint 1 (1_1787801337.png) is not selected for Firebase/Cloudinary upload
+[2026-08-27 08:59:57] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/2_1787801337.png
+[2026-08-27 08:59:57] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/2_1787801337_inference.jpeg
+[2026-08-27 08:59:59] updated object's number to firebase True and 3
+[2026-08-27 09:00:25] uploaded image to cloudinary and stored url in firebase with each url being: https://res.cloudinary.com/dtwinn6ii/image/upload/v1787801415/pvullkckv4gz2n2nnzgy.png and https://res.cloudinary.com/dtwinn6ii/image/upload/v1787801421/cdcpej8rrr3fm1pilsja.jpg
+[2026-08-27 09:24:03] initialised cloudinary
+[2026-08-27 09:24:03] initialised firebase
+[2026-08-27 09:24:03] initialised YOLO inference class
+[2026-08-27 09:24:03] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-27 09:24:03] YOLO node starting, ignoring 36 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-27 09:24:20] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1787802833.png
+[2026-08-27 09:24:30] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/0_1787802833_inference.jpeg
+[2026-08-27 09:24:44] updated object's number to firebase False and 0
+[2026-08-27 09:28:23] initialised cloudinary
+[2026-08-27 09:28:23] initialised firebase
+[2026-08-27 09:28:23] initialised YOLO inference class
+[2026-08-27 09:28:23] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-27 09:28:23] YOLO node starting, ignoring 39 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-27 09:28:33] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1787803106.png
+[2026-08-27 09:28:36] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/0_1787803106_inference.jpeg
+[2026-08-27 09:28:42] updated object's number to firebase True and 1
+[2026-08-27 09:29:13] uploaded image to cloudinary and stored url in firebase with each url being: https://res.cloudinary.com/dtwinn6ii/image/upload/v1787803146/fpl48ln0zgkflra2tfph.png and https://res.cloudinary.com/dtwinn6ii/image/upload/v1787803151/y9pmltspgnosn1jhmcyc.jpg
+[2026-08-27 09:29:29] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/2_1787803106.png
+[2026-08-27 09:29:29] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/2_1787803106_inference.jpeg
+[2026-08-27 09:29:30] updated object's number to firebase True and 3
+[2026-08-27 09:29:53] uploaded image to cloudinary and stored url in firebase with each url being: https://res.cloudinary.com/dtwinn6ii/image/upload/v1787803188/ynj8kpv3ksvoagmxqp0u.png and https://res.cloudinary.com/dtwinn6ii/image/upload/v1787803191/o6kgguexzilloxdio5nf.jpg
+[2026-08-27 09:30:35] initialised cloudinary
+[2026-08-27 09:30:35] initialised firebase
+[2026-08-27 09:30:35] initialised YOLO inference class
+[2026-08-27 09:30:35] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-27 09:30:35] YOLO node starting, ignoring 41 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-27 09:30:46] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1787803238.png
+[2026-08-27 09:30:49] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/0_1787803238_inference.jpeg
+[2026-08-27 09:30:54] updated object's number to firebase False and 0
+[2026-08-27 09:31:38] uploaded image to cloudinary and stored url in firebase with each url being: https://res.cloudinary.com/dtwinn6ii/image/upload/v1787803284/dybyube0qodramejpjmt.png and https://res.cloudinary.com/dtwinn6ii/image/upload/v1787803294/j5a2zoeipnmw5df9ivyb.jpg
+[2026-08-27 09:31:38] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/1_1787803238.png
+[2026-08-27 09:31:38] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/1_1787803238_inference.jpeg
+[2026-08-27 09:31:38] waypoint 1 (1_1787803238.png) is not selected for Firebase/Cloudinary upload
+[2026-08-27 10:18:17] initialised cloudinary
+[2026-08-27 10:18:17] initialised firebase
+[2026-08-27 10:18:17] initialised YOLO inference class
+[2026-08-27 10:18:17] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-27 10:18:17] YOLO node starting, ignoring 43 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-27 10:18:21] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1787806089.png
+[2026-08-27 10:18:31] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/0_1787806089_inference.jpeg
+[2026-08-27 10:18:52] updated object's number to firebase True and 1
+[2026-08-27 10:19:53] uploaded image to cloudinary and stored url in firebase with each url being: https://res.cloudinary.com/dtwinn6ii/image/upload/v1787806178/eb11ig1rrkikql5imau3.png and https://res.cloudinary.com/dtwinn6ii/image/upload/v1787806191/g7745sodz138udfeh4m1.jpg
+[2026-08-27 10:19:54] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/1_1787806089.png
+[2026-08-27 10:19:54] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/1_1787806089_inference.jpeg
+[2026-08-27 10:19:54] waypoint 1 (1_1787806089.png) is not selected for Firebase/Cloudinary upload
+[2026-08-27 10:19:54] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/2_1787806089.png
+[2026-08-27 10:19:55] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/2_1787806089_inference.jpeg
+[2026-08-27 10:19:56] updated object's number to firebase True and 3
+[2026-08-27 10:21:04] uploaded image to cloudinary and stored url in firebase with each url being: https://res.cloudinary.com/dtwinn6ii/image/upload/v1787806248/t6pjggs9ta2cqlwkm6m4.png and https://res.cloudinary.com/dtwinn6ii/image/upload/v1787806261/ptuczqbdrernhgrg8nod.jpg
+[2026-08-27 13:49:35] initialised cloudinary
+[2026-08-27 13:49:36] initialised firebase
+[2026-08-27 13:49:36] initialised YOLO inference class
+[2026-08-27 13:49:36] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-27 13:49:36] YOLO node starting, ignoring 46 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-27 13:51:38] initialised cloudinary
+[2026-08-27 13:51:38] initialised firebase
+[2026-08-27 13:51:38] initialised YOLO inference class
+[2026-08-27 13:51:38] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-27 13:51:38] YOLO node starting, ignoring 46 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-27 13:52:15] initialised cloudinary
+[2026-08-27 13:52:15] initialised firebase
+[2026-08-27 13:52:15] initialised YOLO inference class
+[2026-08-27 13:52:15] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-27 13:52:15] YOLO node starting, ignoring 46 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-27 13:52:29] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1787818938.png
+[2026-08-27 13:52:39] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/0_1787818938_inference.jpeg
+[2026-08-27 13:52:44] updated object's number to firebase False and 0
+[2026-08-27 13:53:48] initialised cloudinary
+[2026-08-27 13:53:48] initialised firebase
+[2026-08-27 13:53:48] initialised YOLO inference class
+[2026-08-27 13:53:48] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-27 13:53:48] YOLO node starting, ignoring 48 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-27 13:53:59] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1787819031.png
+[2026-08-27 13:54:02] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/0_1787819031_inference.jpeg
+[2026-08-27 13:54:08] updated object's number to firebase False and 0
+[2026-08-27 14:16:18] initialised cloudinary
+[2026-08-27 14:16:18] initialised firebase
+[2026-08-27 14:16:18] initialised YOLO inference class
+[2026-08-27 14:16:18] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-27 14:16:18] YOLO node starting, ignoring 51 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-27 14:16:36] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1787820369.png
+[2026-08-27 14:16:48] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/0_1787820369_inference.jpeg
+[2026-08-27 14:16:51] updated object's number to firebase False and 0
+[2026-08-27 14:23:07] initialised cloudinary
+[2026-08-27 14:23:07] initialised firebase
+[2026-08-27 14:23:07] initialised YOLO inference class
+[2026-08-27 14:23:07] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-27 14:23:07] YOLO node starting, ignoring 53 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-27 14:23:18] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1787820790.png
+[2026-08-27 14:23:21] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/0_1787820790_inference.jpeg
+[2026-08-27 14:23:23] updated object's number to firebase False and 0
+[2026-08-27 14:24:33] initialised cloudinary
+[2026-08-27 14:24:33] initialised firebase
+[2026-08-27 14:24:33] initialised YOLO inference class
+[2026-08-27 14:24:33] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-27 14:24:33] YOLO node starting, ignoring 55 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-27 14:24:41] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1787820876.png
+[2026-08-27 14:24:43] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/0_1787820876_inference.jpeg
+[2026-08-27 14:25:01] updated object's number to firebase False and 0
+[2026-08-27 14:25:44] initialised cloudinary
+[2026-08-27 14:25:45] initialised firebase
+[2026-08-27 14:25:45] initialised YOLO inference class
+[2026-08-27 14:25:45] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-27 14:25:45] YOLO node starting, ignoring 57 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-27 14:25:56] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1787820948.png
+[2026-08-27 14:25:59] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/0_1787820948_inference.jpeg
+[2026-08-27 14:26:01] updated object's number to firebase False and 0
+[2026-08-27 14:27:07] uploaded image to cloudinary and stored url in firebase with each url being: https://res.cloudinary.com/dtwinn6ii/image/upload/v1787821012/zwxu9yj8i4uqxrqucacx.png and https://res.cloudinary.com/dtwinn6ii/image/upload/v1787821025/pkid2chplzcdbeasrmin.jpg
+[2026-08-27 14:27:39] initialised cloudinary
+[2026-08-27 14:27:39] initialised firebase
+[2026-08-27 14:27:39] initialised YOLO inference class
+[2026-08-27 14:27:39] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-27 14:27:39] YOLO node starting, ignoring 60 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-27 14:27:50] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1787821063.png
+[2026-08-27 14:27:53] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/0_1787821063_inference.jpeg
+[2026-08-27 14:27:55] updated object's number to firebase False and 0
+[2026-08-27 14:29:56] initialised cloudinary
+[2026-08-27 14:29:56] initialised firebase
+[2026-08-27 14:29:56] initialised YOLO inference class
+[2026-08-27 14:29:56] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-27 14:29:56] YOLO node starting, ignoring 62 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-27 14:30:08] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1787821200.png
+[2026-08-27 14:30:10] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/0_1787821200_inference.jpeg
+[2026-08-27 14:30:13] updated object's number to firebase False and 0
+[2026-08-27 14:31:40] uploaded image to cloudinary and stored url in firebase with each url being: https://res.cloudinary.com/dtwinn6ii/image/upload/v1787821279/q7tovze4ajtr1dqefvly.png and https://res.cloudinary.com/dtwinn6ii/image/upload/v1787821297/itionkg6gr6gdjqxexlb.jpg
+[2026-08-27 14:31:40] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/1_1787821200.png
+[2026-08-27 14:31:40] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/1_1787821200_inference.jpeg
+[2026-08-27 14:31:40] waypoint 1 (1_1787821200.png) is not selected for Firebase/Cloudinary upload
+[2026-08-27 14:59:26] initialised cloudinary
+[2026-08-27 14:59:26] initialised firebase
+[2026-08-27 14:59:26] initialised YOLO inference class
+[2026-08-27 14:59:26] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-08-27 14:59:26] YOLO node starting, ignoring 64 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-08-27 14:59:28] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1787822957.png
+[2026-08-27 14:59:38] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/0_1787822957_inference.jpeg
+[2026-08-27 14:59:41] updated object's number to firebase False and 0
+[2026-08-27 15:02:08] uploaded image to cloudinary and stored url in firebase with each url being: https://res.cloudinary.com/dtwinn6ii/image/upload/v1787823096/o0t95nxyfu8ihkvacjnf.png and https://res.cloudinary.com/dtwinn6ii/image/upload/v1787823123/o67ixmxyvhenkyjqporo.jpg
+[2026-08-27 15:02:08] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/1_1787822957.png
+[2026-08-27 15:02:09] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/1_1787822957_inference.jpeg
+[2026-08-27 15:02:09] waypoint 1 (1_1787822957.png) is not selected for Firebase/Cloudinary upload
+[2026-08-27 15:02:09] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/2_1787822957.png
+[2026-08-27 15:02:09] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/2_1787822957_inference.jpeg
+[2026-08-27 15:02:11] updated object's number to firebase False and 0
+[2026-08-27 15:03:23] uploaded image to cloudinary and stored url in firebase with each url being: https://res.cloudinary.com/dtwinn6ii/image/upload/v1787823191/jy1gdxhbzazmnxqqfy4u.png and https://res.cloudinary.com/dtwinn6ii/image/upload/v1787823201/add0slw3cs4ad1kcbb1s.jpg
+[2026-10-27 21:45:38] initialised cloudinary
+[2026-10-27 21:45:38] initialised firebase
+[2026-10-27 21:45:38] initialised YOLO inference class
+[2026-10-27 21:45:38] loading ONNX model with Ultralytics/ONNX Runtime: /home/shourya/robot_ws/src/bumperbot_yolo/models/part12_crack_wromodel60.onnx
+[2026-10-27 21:45:38] YOLO node starting, ignoring 67 pre-existing file(s) already in /home/shourya/robot_ws/src/bumperbot_yolo/images_taken
+[2026-10-27 21:45:40] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/0_1793117728.png
+[2026-10-27 21:45:49] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/0_1793117728_inference.jpeg
+[2026-10-27 21:45:51] updated object's number to firebase True and 2
+[2026-10-27 21:45:55] uploaded image to cloudinary and stored url in firebase with each url being: https://res.cloudinary.com/dtwinn6ii/image/upload/v1793117753/xtbnczeuagifw2lobzog.png and https://res.cloudinary.com/dtwinn6ii/image/upload/v1793117754/qeot3tsrjar2rwazwl5q.jpg
+[2026-10-27 21:46:15] processing new waypoint image: /home/shourya/robot_ws/src/bumperbot_yolo/images_taken/2_1793117728.png
+[2026-10-27 21:46:15] wrote inference result to /home/shourya/robot_ws/src/bumperbot_yolo/clicked_images_inference/2_1793117728_inference.jpeg
+[2026-10-27 21:46:15] updated object's number to firebase False and 0
+[2026-10-27 21:46:19] uploaded image to cloudinary and stored url in firebase with each url being: https://res.cloudinary.com/dtwinn6ii/image/upload/v1793117777/xpdyxsgrivoiohufhl0v.png and https://res.cloudinary.com/dtwinn6ii/image/upload/v1793117777/qzj4ctpznd93nxtazgiz.jpg

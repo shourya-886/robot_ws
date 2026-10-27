@@ -88,9 +88,6 @@ def generate_launch_description():
             "launch",
             "global_localization.launch.py"
         ),
-        launch_arguments={
-            "use_sim_time": "False"
-        }.items(),
         condition=UnlessCondition(use_slam)
     )
 
@@ -100,9 +97,6 @@ def generate_launch_description():
             "launch",
             "slam.launch.py"
         ),
-        launch_arguments={
-            "use_sim_time": "False"
-        }.items(),
         condition=IfCondition(use_slam)
     )
 
@@ -112,9 +106,6 @@ def generate_launch_description():
             "launch",
             "navigation.launch.py"
         ),
-        launch_arguments={
-            "use_sim_time": "False"
-        }.items(),
     )
 
     camera_node = Node(
@@ -140,9 +131,6 @@ def generate_launch_description():
             "launch",
             "waypoint.launch.py"
         ),
-        launch_arguments={
-            "use_sim_time": "False"
-        }.items(),
         condition=IfCondition(use_waypoint)
     )
 

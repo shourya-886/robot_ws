@@ -52,9 +52,6 @@ def generate_launch_description():
             "launch",
             "global_localization.launch.py"
         ),
-        launch_arguments={
-            "use_sim_time": "True"
-        }.items(),
         condition=UnlessCondition(use_slam)
     )
 
@@ -64,9 +61,6 @@ def generate_launch_description():
             "launch",
             "slam.launch.py"
         ),
-        launch_arguments={
-            "use_sim_time": "True"
-        }.items(),
         condition=IfCondition(use_slam)
     )
 
@@ -76,9 +70,6 @@ def generate_launch_description():
             "launch",
             "navigation.launch.py"
         ),
-        launch_arguments={
-            "use_sim_time": "True"
-        }.items(),
     )
 
     rviz = Node(
