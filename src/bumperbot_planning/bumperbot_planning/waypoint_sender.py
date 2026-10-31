@@ -30,20 +30,10 @@ from nav2_msgs.action import FollowWaypoints, NavigateToPose
 # Hardcoded waypoints, obtained via /clicked_point in RViz2.
 WAYPOINTS = [
     {
-        "x": 0.4752708375453949,
-        "y": -0.0240212082862854,
+        "x": 0.6306914687156677,
+        "y": 0.00047138764057308435,
         "yaw": -1.3962634  # Adjust orientation as needed current is 80deg
-    },
-    {
-        "x": 1.4587117433547974,
-        "y": -0.006280924193561077,#old one 0.00016324748867191374
-        "yaw": -1.57079632679  # Adjust orientation as needed
-    },
-    {
-        "x": 1.4587088823318481,
-        "y": -0.7834638357162476,
-        "yaw": -2.967059728392  # Adjust orientation as needed current is 170deg
-    },
+    }
 ]
 
 
